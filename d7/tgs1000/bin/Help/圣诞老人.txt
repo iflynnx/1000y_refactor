@@ -1,0 +1,11 @@
+<trade>
+<title>圣诞老人</title>
+<image name=z81 value=235>
+<text>
+想换哪个？
+</text>
+<command send='close'>关闭</command>
+<command send="give_dinner">交给 圣诞餐</command>
+<command send="give_shoe">交给 圣诞鞋</command>
+<command send="box">交换 礼盒</command>
+</trade>

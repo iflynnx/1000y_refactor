@@ -1,0 +1,5 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,每小时的前5分钟可以进入王陵,,,,,1000,
+2,TRUE,,,,请勿使用加速软件,,,,,1285,
+3,TRUE,,,,请勿使用外挂软件,,,,,1571,
+4,TRUE,,,,买卖、共享账号导致的一系列问题不作处理。,,,,,3000,

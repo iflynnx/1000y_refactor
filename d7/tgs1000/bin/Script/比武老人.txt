@@ -1,0 +1,161 @@
+unit NPC厚公畴牢;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnLeftClick (aStr : String);
+procedure OnGetResult (aStr : String);
+
+implementation
+
+procedure OnGetResult (aStr : String);
+var
+   Str, Name: String;
+   item: String;
+   iCount : Integer;
+begin
+   if aStr = 'close' then begin
+      exit;
+   end;
+
+   if aStr = 'gonpcroom' then begin
+      Str := callfunc ('checksenderpowerwearitem');
+      iCount := StrToInt (Str);
+      if iCount > 0 then begin
+         print ('say 为了公平起见,请脱掉将技能装备');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 0');
+      if Str = 'true' then begin
+         print ('say 不能用门武');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 1');
+      if Str = 'true' then begin
+         print ('say 不能使用掌法');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 3');
+      if Str = 'true' then begin
+         print ('say 禁用二级武功');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 4');
+      if Str = 'true' then begin
+         print ('say 禁用二级武功');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 5');
+      if Str = 'true' then begin
+         print ('say 禁用4大神功');
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 6');
+      if Str = 'true' then begin
+         print ('say 禁用绝世武功');
+         exit;
+      end;
+      Str := callfunc ('getsendercurpowerlevelname');
+      if Str <> '' then begin
+         print ('say 开镜_不能入场');
+         exit;
+      end;
+      Str := callfunc ('getsenderitemexistence 太极药水:1');
+      if Str = 'false' then begin
+         print ('say 身上没带太极药水吧');
+         exit;
+      end;
+      Str := callfunc ('getusercount 55');
+      iCount := StrToInt (Str);
+      if iCount > 0 then begin
+         print ('say 捕盗大将现在很忙');
+         exit;
+      end;
+      Str := callfunc ('getusercount 56');
+      iCount := StrToInt (Str);
+      if iCount > 0 then begin
+         print ('say 捕盗大将现在很忙');
+         exit;
+      end;
+      Str := callfunc ('checkalivemopcount 55 npc 比武捕盗大将');
+      iCount := StrToInt (Str);
+      if iCount = 0 then begin
+         print ('say 捕盗大将现在很忙_请稍候');
+         exit;
+      end;
+      Str := callfunc ('checkalivemopcount 56 npc 比武梅花夫人');
+      iCount := StrToInt (Str);
+      if iCount = 0 then begin
+         print ('say 捕盗大将现在很忙_请稍候');
+         exit;
+      end;
+      Str := callfunc ('checkentermap 55');
+      if Str = 'false' then begin
+         print ('say 请稍后...');
+         exit;
+      end;
+
+      print ('mapregen 55');
+
+      print ('getsenderitem 太极药水:1');
+      Name := callfunc ('getsendername');
+      Str := 'movespace ' + Name;
+      Str := Str + ' user 55 17 18';
+      print (Str);
+
+      print ('boMapEnter 55 false');
+   end;
+
+   if aStr = 'sell' then begin
+      Name := callfunc ('getsendername');
+      Str := 'tradewindow ' + Name;
+      Str := Str + ' 0';
+      print (Str);
+      exit;
+   end;
+
+   if aStr = 'give' then begin
+      Name := callfunc ('getsenderitemexistence 竞技场兑奖券:1');
+      if Name = 'true' then begin
+	 print ('getsenderitem 竞技场兑奖券:1');
+         Item := callfunc ('getrandomitem 2');
+
+	 Str := 'putsendermagicitem '+ Item;
+	 Str := Str + ' @比武老人 4';
+      	 print (Str);
+         Str := 'say 恭喜恭喜！';	
+      	 print (Str);
+         exit;
+      end;
+   end;
+
+
+
+end;
+
+procedure OnLeftClick (aStr : String);
+var
+   Str : String;
+   Race : Integer;
+begin
+   Str := callfunc ('getsenderrace');
+   Race := StrToInt (Str);
+   if Race = 1 then begin
+      Str := 'showwindow .\help\比武老人.txt 1';
+      print (Str);
+      exit; 
+   end;
+end;
+
+end.

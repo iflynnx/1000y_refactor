@@ -1,0 +1,2 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,TRUE,,,得到霸王令牌了吧，交给我就可以和北霸王比试了,,,,,1000,

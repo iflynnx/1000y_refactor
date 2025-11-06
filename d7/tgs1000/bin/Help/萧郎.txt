@@ -1,0 +1,13 @@
+<trade>
+<title>萧郎</title>
+<image name=z126 value=1>
+<text>
+朋友，我有个心愿，你能帮我完成么？
+</text>
+<command send='close'>关闭</command>
+<command send='ok'>接受任务</command>
+<command send='no'>不接受任务</command>
+<command send='give'>交出素莲的手信</command>
+
+</trade>
+

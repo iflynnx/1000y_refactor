@@ -1,0 +1,10 @@
+<trade>
+<title>老人</title>
+<image name=z110 value=94>
+<text>
+ 拿来 500钱币... 就让你进对战场...
+</text>
+<command send='close'>关闭</command>
+<command send="goroom">递上500钱币</command>
+</trade>
+

@@ -1,0 +1,13 @@
+<give>
+<head>
+<title>一级僧侣</title>
+<image name=z26 value=56>
+<text>
+还望施主慈悲为怀，施舍些天桃汁给贫僧。
+佛祖保佑，阿弥陀佛。
+路见不平、拔剑相助，行侠仗义、除恶扬善。 
+</text>
+</head>
+<command send='close'>关闭</command>
+<command send="give_ok"> 施舍给和尚天桃汁.</command>
+</give>

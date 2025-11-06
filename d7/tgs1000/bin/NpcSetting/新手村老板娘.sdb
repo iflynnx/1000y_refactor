@@ -1,0 +1,6 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,新手村已更新,,,,,2000,
+2,TRUE,,,,@解除团队 不能PK也不受攻击,,,,,2500,
+3,TRUE,,,,具体事项请询问向导,,,,,3000,
+4,TRUE,,,,请时常关注公告栏,,,,,3500,
+5,TRUE,,,,请勿使用加速软件,,,,,4000,

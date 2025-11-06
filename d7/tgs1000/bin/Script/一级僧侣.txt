@@ -1,0 +1,144 @@
+unit 一级僧侣;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnGetResult (aStr : String);
+procedure OnLeftClick (aStr : String);
+procedure OnApproach (aStr : String);
+procedure OnAway (aStr : String);
+procedure OnArrival (aStr : String);
+
+var
+	iCallCount : Integer = 0;
+
+implementation
+
+procedure OnAway (aStr : String);
+var
+   Str : String;
+   Race : Integer;
+begin
+   Str := callfunc ('getsenderrace');
+   Race := StrToInt (Str);
+   if Race = 1 then begin
+      print ('say 南无阿弥陀佛...');
+	  exit;
+   end;
+end;
+
+procedure OnApproach (aStr : String);
+var
+   Str : String;
+   Race : Integer;
+begin
+   Str := callfunc ('getsenderrace');
+   Race := StrToInt (Str);
+   if Race = 1 then begin
+      print ('say 施给僧侣，给您带来好运...');
+	  exit;
+   end;
+end;
+
+procedure OnLeftClick (aStr : String);
+var
+   Str : String;
+begin
+   Str := 'showwindow .\help\give.txt 1';
+   print (Str);
+   exit;
+end;
+
+procedure OnGetResult (aStr : String);
+var
+   Str, Name : String;
+   iRandom, iKind : Integer;
+begin
+   if aStr = 'give_ok' then begin
+      Str := callfunc ('getsenderitemexistence 天桃汁儿:1');
+      if Str = 'false' then begin
+         Str := 'say 没有天桃汁儿还说什么!!';
+         print (Str);
+         exit;
+      end;
+
+      if Str = 'true' then begin
+         Str := 'getsenderitem 天桃汁儿:1';
+         print (Str);
+         Str := 'say 佛祖保佑..._南无阿弥陀佛....';
+         print (str);
+
+         iRandom := Random (500);
+         if iRandom = 1 then begin
+            Str := callfunc ('checkenoughspace');
+            if Str = 'false' then begin
+               print ('say 物品栏已满~');
+               exit;
+            end;
+
+            iKind := Random (11);
+            if iKind = 0 then begin
+               Str := 'putsendermagicitem 如来天王拳@一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 1 then begin
+               Str := 'putsendermagicitem 飞龙剑法 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 2 then begin
+               Str := 'putsendermagicitem 花郎斩 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 3 then begin
+               Str := 'putsendermagicitem 岳家枪法 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 4 then begin
+               Str := 'putsendermagicitem 帝王槌法 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 5 then begin
+               Str := 'putsendermagicitem 不灭体 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 6 then begin
+               Str := 'putsendermagicitem 吸着水石@一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 7 then begin
+               Str := 'putsendermagicitem 生死梦幻丹 @一级僧侣 4';
+               print (Str);
+            end;
+            if iKind = 8 then begin
+               Str := 'putsendermagicitem 狐狸内丹三 @一级僧侣4';
+               print (Str);
+            end;
+            if iKind = 9 then begin
+               Str := 'putsendermagicitem 男子凤凰鞋@一级僧侣 4';
+               print (Str);
+            end;
+       	   if iKind = 10 then begin
+               Str := 'putsendermagicitem 女子凤凰鞋@一级僧侣4';
+               print (Str);
+            end;
+            Str := 'say 这不正是昨天在路上捡到的那件东西吗~';
+            print (str);
+         end;
+         exit;
+      end;
+      exit;
+   end;
+end;
+
+end.

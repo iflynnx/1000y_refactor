@@ -1,0 +1,55 @@
+unit 悼秦此瘤辑而;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnDropItem (aStr : String);
+
+implementation
+
+procedure OnDropItem (aStr : String);
+var
+   Str : String;
+   Name : String;
+begin
+   Str := callfunc ('checkenoughspace');
+   if Str = 'false' then begin
+      print ('say 物品栏已满');
+      exit;
+   end;
+
+   print ('getsenderitem 书函:1');
+   Str := callfunc ('getsenderitemexistence 侠客指环:1');
+   if Str = 'false' then begin
+      print ('putsendermagicitem 侠客指环:1 @东海沼泽抽屉 5');
+   end;
+
+   print ('changesendercurrentquest 1250');
+   print ('changesendercompletequest 1200');
+
+   Str := callfunc ('getsenderqueststr');
+   if Str = '1' then begin
+      Name := callfunc ('getsendername');
+      Str := 'questcomplete ' + Name;
+      Str := Str + ' 西域魔人阴谋';
+      print (Str);
+      print ('changesenderqueststr 2');
+      exit;
+   end;
+
+   print ('sendsenderchatmessage 完成了西域魔人任务 2');
+   exit;
+end;
+
+end.

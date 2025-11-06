@@ -1,0 +1,306 @@
+
+
+
+2022-08-01
+增加 爆率查看
+tgs1000.dpr
+  uRandomManager in 'uRandomManager.pas' {FrmRandomManager},  
+  Application.CreateForm(TFrmRandomManager, FrmRandomManager);
+
+uRandomManager.pas
+uRandomManager.dfm
+  svClass.pas增加修改：
+  TRandomDataClass = class
+        //成员是 TRandomData
+  private
+    DataList: TList;
+    FObjName: string;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure add(aitem: TRandomData);
+    procedure clear;
+    function get(aname: string): PTRandomData;
+    function GetCount: integer;
+    function GetByIndex(aIndex: Integer): PTRandomData;
+  end;
+
+  TRandomClass = class
+        //成员是 TRandomDataClass
+  private
+    DataList: TList;
+    AnsIndexClass: TStringKeyClass;
+    function get(aObjname: string): TRandomDataClass;
+
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Clear;
+    procedure del(aObjname: string);
+    procedure AddData(aItemName, aObjName: string; aCount: Integer);
+    function GetChance(aItemName, aObjName: string; aName: string = ''): Boolean;
+    function SetChance(aItemName, aObjName: string; CurIndex, Index, Count: Integer): Boolean;
+    function GetDataByObjName(aObjName: string): TRandomDataClass;
+    function GetCount: integer;
+    function GetDataByIndex(aIndex: Integer): TRandomDataClass;
+  end;
+
+///////////////////////////////////
+//         TRandomClass
+///////////////////////////////////
+
+constructor TRandomClass.Create;
+begin
+  DataList := nil;
+  DataList := TList.Create;
+  AnsIndexClass := TStringKeyClass.Create;
+end;
+
+destructor TRandomClass.Destroy;
+begin
+  Clear;
+  if DataList <> nil then DataList.Free;
+  AnsIndexClass.Free;
+end;
+
+procedure TRandomClass.del(aObjname: string);
+var
+  i: Integer;
+  p: TRandomDataClass;
+begin
+  if get(aObjname) = nil then exit;
+  for i := 0 to DataList.Count - 1 do
+  begin
+    p := DataList.Items[i];
+    if p.FObjName = aObjname then
+    begin
+      DataList.Delete(i);
+      AnsIndexClass.Delete(p.FObjName);
+      p.Free;
+      exit;
+    end;
+  end;
+
+end;
+
+procedure TRandomClass.Clear;
+var
+  i: Integer;
+  p: TRandomDataClass;
+begin
+  for i := 0 to DataList.Count - 1 do
+  begin
+    p := DataList.Items[i];
+    p.Free;
+  end;
+  DataList.Clear;
+  AnsIndexClass.Clear;
+end;
+
+function TRandomClass.get(aObjname: string): TRandomDataClass;
+begin
+  result := AnsIndexClass.Select(aObjname);
+end;
+
+procedure TRandomClass.AddData(aItemName, aObjName: string; aCount: Integer);
+var
+  p: TRandomDataClass;
+  temp: TRandomData;
+begin
+  if (aItemName = '') or (aObjName = '') then exit;
+  p := get(aObjName);
+  if p = nil then
+  begin
+    p := TRandomDataClass.Create;
+    P.FObjName := aObjName;
+    DataList.Add(p);
+    AnsIndexClass.Insert(aObjName, p);
+  end;
+
+  temp.rItemName := aItemName;
+  temp.rObjName := aObjName;
+  if aCount < 1 then temp.rCount := 1
+  else temp.rCount := aCount;
+  //temp.rIndex := Random(temp.rCount);
+  if temp.rCount >= 10000 then
+    temp.rIndex := (temp.rCount div 2) + Random(temp.rCount div 2)
+  else
+    temp.rIndex := Random(temp.rCount);
+  temp.rCurIndex := 0;
+  p.add(temp);
+end;
+
+function TRandomClass.GetChance(aItemName, aObjName: string; aName: string = ''): Boolean;
+var
+//    i: Integer;
+  pd: PTRandomData;
+  p: TRandomDataClass;
+  uUser: tuser;
+begin
+  Result := false;
+  p := get(aObjName);
+  if p = nil then exit;
+
+  pd := p.get(aItemName);
+  if pd = nil then exit;
+  if pd^.rItemName = aItemName then
+  begin
+    if pd^.rObjName = aObjName then
+    begin
+      Result := false;
+      //检测是否有传入玩家姓名
+      if aName <> '' then
+      begin
+        //获取玩家爆出作弊设置
+       // uUser := UserList.GetUserPointer(aName);
+        //if (uUser <> nil) and (uUser.getCheatings = pd^.rCount) then
+        //begin
+         // pd^.rCurIndex := pd^.rIndex;
+          //uUser.SetCheatings(0);
+        //end;
+      end;
+
+      if pd^.rCurIndex = pd^.rIndex then Result := true;
+      Inc(pd^.rCurIndex);
+      if pd^.rCurIndex >= pd^.rCount then
+      begin
+        pd^.rCurIndex := 0;
+        pd^.rIndex := Random(pd^.rCount);
+        //pd^.rIndex := (pd^.rCount div 2) + Random(pd^.rCount div 2);
+      end;
+      exit;
+    end;
+  end;
+end;
+
+function TRandomClass.SetChance(aItemName, aObjName: string; CurIndex, Index, Count: Integer): Boolean;
+var
+//    i: Integer;
+  pd: PTRandomData;
+  p: TRandomDataClass;
+begin
+  Result := false;
+  p := get(aObjName);
+  if p = nil then exit;
+
+  pd := p.get(aItemName);
+  if pd = nil then exit;
+  if pd^.rItemName = aItemName then
+  begin
+    if pd^.rObjName = aObjName then
+    begin
+      pd^.rCurIndex := CurIndex;
+      pd^.rIndex := Index;
+      pd^.rCount := Count;
+      Result := true;
+      exit;
+    end;
+  end;
+end;
+
+
+function TRandomClass.GetCount: integer;
+begin
+  result := DataList.Count;
+end;
+
+function TRandomClass.GetDataByIndex(aIndex: Integer): TRandomDataClass;
+var
+//    i: Integer;
+  p: TRandomDataClass;
+begin
+  Result := nil;
+  if (aIndex < 0) and (aIndex > DataList.Count) then Exit;
+  p := DataList.Items[aIndex];
+  if p <> nil then Result := p;
+  exit;
+end;
+
+function TRandomClass.GetDataByObjName(aObjName: string): TRandomDataClass;
+var
+//    i: Integer;
+  p: TRandomDataClass;
+begin
+  Result := nil;
+  p := get(aObjName);
+  if p = nil then exit;
+  Result := p;
+  exit;
+end;
+
+///////////////////////////////////
+//         TRandomDataClass
+///////////////////////////////////
+{ TRandomDataClass }
+
+procedure TRandomDataClass.add(aitem: TRandomData);
+var
+  p: PTRandomData;
+begin
+  p := get(aitem.rItemName);
+  if p <> nil then exit;
+  new(p);
+  p^ := aitem;
+  DataList.Add(p);
+end;
+
+procedure TRandomDataClass.clear;
+var
+  i: Integer;
+  p: PTRandomData;
+begin
+  for i := 0 to DataList.Count - 1 do
+  begin
+    p := DataList.Items[i];
+    dispose(p);
+  end;
+  DataList.Clear;
+end;
+
+constructor TRandomDataClass.Create;
+begin
+  DataList := TList.Create;
+end;
+
+destructor TRandomDataClass.Destroy;
+begin
+  clear;
+  DataList.Free;
+  inherited;
+end;
+
+function TRandomDataClass.get(aname: string): PTRandomData;
+var
+  i: Integer;
+  p: PTRandomData;
+begin
+  result := nil;
+  for i := 0 to DataList.Count - 1 do
+  begin
+    p := DataList.Items[i];
+    if p.rItemName = aname then
+    begin
+      result := p;
+      exit;
+    end;
+  end;
+
+end;
+
+function TRandomDataClass.GetCount: integer;
+begin
+  result := DataList.Count;
+end;
+
+function TRandomDataClass.GetByIndex(aIndex: Integer): PTRandomData;
+var
+  pd: PTRandomData;
+begin
+  result := nil;
+  if (aIndex < 0) and (aIndex > DataList.Count) then Exit;
+  pd := DataList.Items[aIndex];
+  if pd <> nil then Result := pd;
+  exit;
+end;

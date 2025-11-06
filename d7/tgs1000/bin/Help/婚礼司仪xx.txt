@@ -1,0 +1,14 @@
+<trade>
+<title>聚贤庄庄主</title>
+<image name=z130 value=30>
+<text>
+阁下，欢迎莅临聚贤庄。
+
+</text>
+<command send='close'>关闭</command>
+<command send='salesell'>购买进门券</command>
+<command send='fight'>申请领土瓜分</command>
+<command send='pickup'>申请采集技能</command>
+
+</trade>
+

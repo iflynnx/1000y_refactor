@@ -1,0 +1,10 @@
+<trade>
+<title>素莲</title>
+<image name=z125 value=29>
+<text>
+我有个朋友叫萧郎，他已经消失了一个月了，遇到他帮我捎个口信，说我很想他。
+</text>
+<command send='close'>关闭</command>
+<command send='ok'>交出血红色的玛瑙石</command>
+</trade>
+

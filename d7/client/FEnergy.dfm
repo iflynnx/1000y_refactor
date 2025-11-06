@@ -1,0 +1,23 @@
+object FrmEnergy: TFrmEnergy
+  Left = 327
+  Top = 783
+  BorderIcons = []
+  BorderStyle = bsNone
+  ClientHeight = 36
+  ClientWidth = 119
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Arial'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesigned
+  ShowHint = True
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnMouseDown = FormMouseDown
+  PixelsPerInch = 96
+  TextHeight = 15
+end

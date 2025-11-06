@@ -1,0 +1,11 @@
+<trade>
+<title>圣诞老人</title>
+<image name=z81 value=235>
+<text>
+想换哪个？
+</text>
+<command send='close'>关闭</command>
+<command send="give_red">交给 红色礼盒</command>
+<command send="give_blue">交给 蓝色礼盒</command>
+<command send="give_green">交给 绿色礼盒</command>
+</trade>

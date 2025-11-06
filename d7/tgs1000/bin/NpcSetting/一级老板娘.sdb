@@ -1,0 +1,7 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,欢迎你到新手村,,,,,2000,
+2,TRUE,,,,游戏的有关事项请找向导,,,,,2444,
+3,TRUE,,,,请时常打开公告栏来看看,,,,,2888,
+4,TRUE,,,,禁止使用外挂软件,,,,,3333,
+5,TRUE,,,,有更新请下载补丁,,,,,3777,
+6,TRUE,,,,我这里出售女子普通装备,,,,,4222,

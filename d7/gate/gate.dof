@@ -1,0 +1,125 @@
+[FileVersion]
+Version=6.0
+[Compiler]
+A=1
+B=0
+C=0
+D=0
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=0
+M=0
+N=1
+O=0
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=0
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=bin
+UnitOutputDir=dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=D:\project\alib;
+Packages=Vcl40;Vclx40;VclSmp40;Vcldb40;Qrpt40;TeeUI40;teedb40;tee40;vcldbx40;Dss40;ibevnt40;Vclmid40;NMFast40;Inetdb40;Inet40;DelphiX_for4
+Conditionals=_CHINA
+DebugSourceDirs=
+UsePackages=0
+[Parameters]
+RunParams=
+HostApplication=
+Launcher=
+UseLauncher=0
+DebugCWD=
+[Language]
+ActiveLang=
+ProjectLang=$00000412
+RootDir=
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1042
+CodePage=949
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_CHINA
+Item1=_TAIWAN
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=6
+Item0=D:\project\alib;
+Item1=D:\project\alib;D:\Working\project\alib
+Item2=D:\project\alib;E:\working\project\alib;D:\Working\project\alib
+Item3=C:\project\alib;E:\working\project\alib;D:\Working\project\alib
+Item4=C:\project\alib;E:\working\project\alib
+Item5=C:\project\alib
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=dcu
+[HistoryLists\hlOutputDirectorry]
+Count=18
+Item0=bin
+Item1=D:\1000yWork\gate\bin
+Item2=E:\delphi\Server All Source\Debug\Gate
+Item3=E:\delphi\Server All Source\Server\ChinaTest - bestmagic\Gate
+Item4=D:\Working - Chinasrv\ChinaTest 2004-04-29 bestmagic\Gate
+Item5=D:\Working\china-040630\ChinaTest 2004-04-29 bestmagic\Gate
+Item6=D:\ChinaTest 2004-04-29 bestmagic\Gate
+Item7=E:\working\중국 - 확장무공 패치\실행파일들 2004-03-29 확장무공\Gate
+Item8=D:\ChinaTest 2003-12-01 Tomb3\Gate
+Item9=D:\ChinaTest 2003-07-28 Wind, First, Shop\Gate
+Item10=D:\TaiwanTest 2003-07-29 wind, shop\Gate
+Item11=D:\TaiwanTest 2003-07-29\Gate
+Item12=D:\ChinaTest 2003-01-24 Skill\Gate
+Item13=D:\TaiwanTest 2003-01-24 Skill\Gate
+Item14=D:\ChinaTest\gate
+Item15=D:\TaiwanTest\gate
+Item16=D:\ChinaTest 2002-10-29\Gate
+Item17=D:\TaiwanTestPay\Gate

@@ -1,0 +1,214 @@
+unit 厚公辑开付牢;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnCreate (aStr : String);
+procedure OnDie (aStr : String);
+procedure OnChangeState (aStr : String);
+procedure OnGetResult (aStr : String);
+
+implementation
+
+procedure OnGetResult (aStr : String);
+var
+   Str, Name : String;
+   iCount : Integer;
+begin
+   if aStr = 'npcstart' then begin
+      Str := callfunc ('getsenderserverid');
+      if Str <> '69' then exit;
+
+      Str := callfunc ('getsenderrace');
+      if Str <> '1' then exit;
+
+      Str := callfunc ('checksenderpowerwearitem');
+      iCount := StrToInt (Str);
+      if iCount > 0 then begin
+         print ('say 请先脱掉带属性值的装备!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 0');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 1');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 3');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 4');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 5');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      Str := callfunc ('checksendercurusemagic 6');
+      if Str = 'true' then begin
+         print ('say 你选错武功了!');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+      
+      Str := callfunc ('getsendercurpowerlevelname');
+      if Str <> '' then begin
+         print ('say 禁止开镜进入');
+         Name := callfunc ('getsendername');
+         Str := 'movespace ' + Name;
+         Str := Str + ' user 1 546 475 100';
+         print (Str);
+         exit;
+      end;
+
+      print ('directmovespace 比武西域魔人 npc 69 20 18 0');
+
+      print ('commandicebyname 比武西域魔人 npc 500');
+      print ('setallowhitbytick true 500');      
+
+      Name := callfunc ('getsendername');
+      Str := 'commandicebyname ' + Name;
+      Str := Str + ' user 500';
+      print (Str);
+
+      print ('senderrefill');
+
+      print ('say 绝没有胜算 50');
+      print ('say 挑战_不是卤莽_是什么? 400');
+      exit;
+   end;
+end;
+
+procedure OnCreate (aStr : String);
+var
+   Str : String;
+begin
+   Str := callfunc ('getsenderrace');
+   if Str <> '1' then begin
+      exit;
+   end;
+
+   Str := 'showwindow .\help\比武西域魔人.txt 1';
+   print (Str);
+   exit;
+end;
+
+procedure OnDie (aStr : String);
+var
+   Str, Name : String;
+   n : integer;
+begin
+   Str := callfunc ('getsenderrace');
+   if Str <> '1' then exit;
+
+   Name := callfunc ('getsendername');
+
+   Str := 'senditemmoveinfo ' + Name;
+   Str := Str + ',<比武西域魔人>,<过关>,0,0,0,0,,';
+   print (Str);
+   
+   Str := callfunc ('checkenoughspace 3');
+   if Str = 'false' then begin
+      print ('say 物品栏已满...');
+      exit;
+   end;
+   print ('putsendermagicitem 侠客卷轴:3 @比武西域魔人 4');
+
+   Str := callfunc ('getsendersex');
+   n := StrToInt (Str);
+   if n = 1 then begin
+      print ('putsendermagicitem 男子帝王头盔 @比武西域魔人 4');
+   end;
+   if n = 2 then begin
+      print ('putsendermagicitem 女子帝王头盔 @比武西域魔人 4');
+   end;
+
+   print ('putsendermagicitem 仙人卷轴:1 @比武西域魔人 4');
+   
+   print ('say 下次我绝不手软');
+
+   Name := callfunc ('getsendername');
+   Str := 'movespace ' + Name;
+   Str := Str + ' user 1 546 475 500';
+   print (Str);
+end;
+
+procedure OnChangeState (aStr : String);
+var
+   Str, Name : String;
+begin
+   if aStr <> 'die' then exit;
+
+   Str := callfunc ('getsenderrace');
+   if Str <> '1' then exit;
+
+   print ('say 哎_我这不是又摧残了一个幼苗吗?50');
+   print ('say 哈哈~ 400');
+
+   Str := callfunc ('checkenoughspace');
+   if Str = 'false' then begin
+      print ('say 物品栏已满...');
+      Name := callfunc ('getsendername');
+      Str := 'movespace ' + Name;
+      Str := Str + ' user 1 546 475 600';
+      print (Str);
+      exit;
+   end;
+
+   print ('putsendermagicitem 侠客卷轴:1 @比武北霸王 4');
+
+   Name := callfunc ('getsendername');
+   Str := 'movespace ' + Name;
+   Str := Str + ' user 1 546 475 600';
+   print (Str);
+end;
+
+end.
+

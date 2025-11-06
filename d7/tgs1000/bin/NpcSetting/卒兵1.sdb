@@ -1,0 +1,6 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,移至长城以南的跳点.,,,,,2000,
+2,TRUE,,,,请按顺序排队,,,,,2100,
+3,TRUE,,,,通过跳点移至长城以南,,,,,2200,
+4,TRUE,,,,到了长城以南就得多加小心了,,,,,2300,
+5,TRUE,,,,游戏的具体事项请至游戏主页www.1000y.com.cn,,,,,2400,

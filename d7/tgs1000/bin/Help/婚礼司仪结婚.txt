@@ -1,0 +1,15 @@
+<trade>
+<title>婚礼司仪</title>
+<image name=z129 value=30>
+<text>
+要获得婚礼礼服，必须拥有新郎/新娘戒指哦……
+
+</text>
+<command send='close'>关闭</command>
+<command send='marry'>求婚</command>
+<command send='give'>获得婚礼礼服</command>
+<command send='unmarry'>离婚</command>
+
+
+</trade>
+

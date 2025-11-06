@@ -1,0 +1,4 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,来试试您的运气如何。,,,,,10000,
+2,TRUE,,,,快来换圣诞礼物啦！,,,,,10000,
+3,TRUE,,,,祝您圣诞快乐！,,,,,10000,

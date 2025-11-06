@@ -1,0 +1,1049 @@
+object FrmMiniMap: TFrmMiniMap
+  Left = 348
+  Top = 135
+  BorderStyle = bsNone
+  Caption = 'FrmMiniMap'
+  ClientHeight = 363
+  ClientWidth = 460
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnMouseDown = FormMouseDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 15
+  object CenterIDLabel: TA2ILabel
+    Left = 152
+    Top = 24
+    Width = 8
+    Height = 8
+    AutoSize = False
+    Color = clTeal
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object SearchIDLabel: TA2ILabel
+    Left = 64
+    Top = 16
+    Width = 48
+    Height = 57
+    AutoSize = False
+    Caption = 'SearchIDLabel'
+    Color = clOlive
+    ParentColor = False
+    Visible = False
+    ADXForm = A2Form
+  end
+  object A2ILabel1: TA2ILabel
+    Left = 64
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel2: TA2ILabel
+    Left = 72
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel3: TA2ILabel
+    Left = 80
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel4: TA2ILabel
+    Left = 88
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel5: TA2ILabel
+    Left = 96
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel6: TA2ILabel
+    Left = 104
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel7: TA2ILabel
+    Left = 112
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel8: TA2ILabel
+    Left = 120
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel9: TA2ILabel
+    Left = 128
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel10: TA2ILabel
+    Left = 136
+    Top = 224
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel11: TA2ILabel
+    Left = 72
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel12: TA2ILabel
+    Left = 80
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel13: TA2ILabel
+    Left = 88
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel14: TA2ILabel
+    Left = 96
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel15: TA2ILabel
+    Left = 104
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel16: TA2ILabel
+    Left = 112
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel17: TA2ILabel
+    Left = 120
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel18: TA2ILabel
+    Left = 128
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel19: TA2ILabel
+    Left = 136
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel20: TA2ILabel
+    Left = 144
+    Top = 232
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel21: TA2ILabel
+    Left = 80
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel22: TA2ILabel
+    Left = 88
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel23: TA2ILabel
+    Left = 96
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel24: TA2ILabel
+    Left = 104
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel25: TA2ILabel
+    Left = 112
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel26: TA2ILabel
+    Left = 120
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel27: TA2ILabel
+    Left = 128
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel28: TA2ILabel
+    Left = 136
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel29: TA2ILabel
+    Left = 144
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel30: TA2ILabel
+    Left = 152
+    Top = 240
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel31: TA2ILabel
+    Left = 88
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel32: TA2ILabel
+    Left = 96
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel33: TA2ILabel
+    Left = 104
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel34: TA2ILabel
+    Left = 112
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel35: TA2ILabel
+    Left = 120
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel36: TA2ILabel
+    Left = 128
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel37: TA2ILabel
+    Left = 136
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel38: TA2ILabel
+    Left = 144
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel39: TA2ILabel
+    Left = 152
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel40: TA2ILabel
+    Left = 160
+    Top = 248
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel41: TA2ILabel
+    Left = 96
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel42: TA2ILabel
+    Left = 104
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel43: TA2ILabel
+    Left = 112
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel44: TA2ILabel
+    Left = 120
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel45: TA2ILabel
+    Left = 128
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel46: TA2ILabel
+    Left = 136
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel47: TA2ILabel
+    Left = 144
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel48: TA2ILabel
+    Left = 152
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel49: TA2ILabel
+    Left = 160
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel50: TA2ILabel
+    Left = 168
+    Top = 256
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel51: TA2ILabel
+    Left = 104
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel52: TA2ILabel
+    Left = 112
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel53: TA2ILabel
+    Left = 120
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel54: TA2ILabel
+    Left = 128
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel55: TA2ILabel
+    Left = 136
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel56: TA2ILabel
+    Left = 144
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel57: TA2ILabel
+    Left = 152
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel58: TA2ILabel
+    Left = 160
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel59: TA2ILabel
+    Left = 168
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel60: TA2ILabel
+    Left = 176
+    Top = 264
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel61: TA2ILabel
+    Left = 112
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel62: TA2ILabel
+    Left = 120
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel63: TA2ILabel
+    Left = 128
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel64: TA2ILabel
+    Left = 136
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel65: TA2ILabel
+    Left = 144
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel66: TA2ILabel
+    Left = 152
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel67: TA2ILabel
+    Left = 160
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel68: TA2ILabel
+    Left = 168
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel69: TA2ILabel
+    Left = 176
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel70: TA2ILabel
+    Left = 184
+    Top = 272
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel71: TA2ILabel
+    Left = 120
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel72: TA2ILabel
+    Left = 128
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel73: TA2ILabel
+    Left = 136
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel74: TA2ILabel
+    Left = 144
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel75: TA2ILabel
+    Left = 152
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel76: TA2ILabel
+    Left = 160
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel77: TA2ILabel
+    Left = 168
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel78: TA2ILabel
+    Left = 176
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel79: TA2ILabel
+    Left = 184
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel80: TA2ILabel
+    Left = 192
+    Top = 280
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel81: TA2ILabel
+    Left = 128
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel82: TA2ILabel
+    Left = 136
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel83: TA2ILabel
+    Left = 144
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel84: TA2ILabel
+    Left = 152
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel85: TA2ILabel
+    Left = 160
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel86: TA2ILabel
+    Left = 168
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel87: TA2ILabel
+    Left = 176
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel88: TA2ILabel
+    Left = 184
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel89: TA2ILabel
+    Left = 192
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel90: TA2ILabel
+    Left = 200
+    Top = 288
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel91: TA2ILabel
+    Left = 136
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel92: TA2ILabel
+    Left = 144
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel93: TA2ILabel
+    Left = 152
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel94: TA2ILabel
+    Left = 160
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel95: TA2ILabel
+    Left = 168
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel96: TA2ILabel
+    Left = 176
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel97: TA2ILabel
+    Left = 184
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel98: TA2ILabel
+    Left = 192
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel99: TA2ILabel
+    Left = 200
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2ILabel0: TA2ILabel
+    Left = 208
+    Top = 296
+    Width = 4
+    Height = 4
+    AutoSize = False
+    Color = clHighlight
+    ParentColor = False
+    ADXForm = A2Form
+  end
+  object A2Form: TA2Form
+    Color = clBlack
+    OnAdxPaintStart = A2FormAdxPaintStart
+    ShowMethod = FSM_DARKEN
+    TransParent = False
+  end
+end

@@ -1,0 +1,14 @@
+<trade>
+<head>
+<title>老板娘的爱情故事</title>
+<image name=z25 value=108>
+<text>
+  当我还是个少女的时候，有过一段美好而又遗憾的爱情，现在需要绿林峡谷中生长的“彼岸花”唤醒我那被媚妖所迷的爱人，你愿意帮我么？
+</text>
+<command send='close'> 关闭</command>
+<command send="no"> 我再想想</command>
+<command send="ok"> 我愿意</command>
+<command send="give"> 送出两朵彼岸花</command>
+</trade>
+
+

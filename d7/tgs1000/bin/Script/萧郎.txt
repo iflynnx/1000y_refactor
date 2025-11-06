@@ -1,0 +1,124 @@
+unit 萧郎;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnGetResult (aStr : String);
+procedure OnLeftClick (aStr : String);
+
+implementation
+
+procedure OnLeftClick (aStr : String);
+var
+   Str : String;
+   Race : Integer;
+begin
+   Str := callfunc ('getsenderrace');
+   Race := StrToInt (Str);
+   if Race = 1 then begin
+      Str := 'showwindow .\help\萧郎.txt 1';
+      print (Str);
+      exit;
+   end;
+end;
+
+procedure OnGetResult (aStr : String);
+var
+   Str,Str1,  Name : String;
+   FirstQuest : Integer;
+   nValue : Integer;
+begin
+   if aStr = 'close' then begin
+      exit;
+   end;
+
+   if aStr = 'ok' then begin
+	Str := callfunc ('getevent 1');
+	FirstQuest := StrToInt (Str);
+	if FirstQuest <> 0 then begin
+	         Str := 'say 我们似乎在哪儿见过...';
+	      	 print (Str);		
+		Exit; 
+	end;
+
+      Name := callfunc ('getsenderitemexistence 素莲的手信:1');
+      if Name <> 'false' then begin
+         Str := 'say 恩？你是不是有什么东西要交给我？';
+      	 print (Str);
+         exit;
+      end;
+
+      Name := callfunc ('getsenderitemexistence 血红色的玛瑙石:1');
+      if Name <> 'false' then begin
+	 Str1 := callfunc ('getpassmissiontime');
+      	 print ('say 你怎么还没把玛瑙石送过去啊？要抓紧时间啊！ 100');
+      	 Str1 := 'say 已经过去'+Str1;
+      	 Str1 := Str1 + '分钟了！ 200';       	 
+      	 print (Str1);
+
+         exit;
+      end;
+
+      Name := callfunc ('checkenoughspace');
+      if Name = 'false' then begin
+         print ('say 物品栏已满');
+         exit;
+      end;
+
+      print ('putsendermagicitem 血红色的玛瑙石:1 @萧郎 4');
+      print ('getsenderitem 血石:249');
+      Name := callfunc ('startmissiontime');
+      print ('say 这是一颗珍贵的“血红色的玛瑙石” 100');
+      print ('say 我想拜托你把它交给我的素莲手中，你不要辜负我的希望！ 200');
+      exit;
+   end;
+
+   if aStr = 'no' then begin
+      print ('say 难道你不想帮助我么？看来我只好再等别人了……');
+      exit;
+   end;
+
+   if aStr = 'give' then begin
+        Name := callfunc ('getsenderage');
+        FirstQuest := StrToInt(Name);
+ 
+      if FirstQuest > 4000 then begin
+         print ('say 你看起来很沧桑啊，一定经历过很多故事！');
+         exit;
+      end; 
+
+      Name := callfunc ('getsenderitemexistence 素莲的手信:1');
+      if Name = 'false' then begin
+         Str := 'say 你怎么还没把玛瑙石送过去啊？要抓紧时间啊！';
+      	 print (Str);
+         exit;
+      end;
+
+      Name := callfunc ('checkenoughspace');
+      if Name = 'false' then begin
+         print ('say 物品栏已满');
+         exit;
+      end;
+      Str := callfunc ('getsetevent 1');
+      print ('getsenderitem 血石:249');
+      print ('getsenderitem 素莲的手信:1');
+      print ('putsendermagicitem 噬月刀:1 @萧郎 4');
+      print ('say 你真的交给她了？太感谢你了！');
+      print ('say 这是噬月刀，用它来斩杀犀牛王吧！');
+      exit;
+   end;
+
+end;
+
+end.

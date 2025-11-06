@@ -1,0 +1,7 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,终于出现要买弓术类密笈的人了,,,,,1000,
+2,TRUE,,,,准备好钱了吗?,,,,,1125,
+3,TRUE,,,,用潜行术就可交换透视符,,,,,1250,
+4,TRUE,,,,买卖、共享账号导致的一系列问题不作处理。,,,,,2000,
+5,TRUE,,,,禁止使用外挂程序,,,,,2000,
+6,TRUE,,,,,,,,,2000,

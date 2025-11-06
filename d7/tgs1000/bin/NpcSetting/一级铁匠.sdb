@@ -1,0 +1,6 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,售基本武器和飞刀、箭,,,,,1000,
+2,TRUE,,,,F1是帮助键,,,,,1250,
+3,TRUE,,,,拿天桃和空瓶来，帮你做天桃汁儿。,,,,,1500,
+4,TRUE,,,,施给和尚一点天桃汁儿吧,,,,,1750,
+5,TRUE,,,,买卖、共享账号导致的一系列问题不作处理。,,,,,2000,

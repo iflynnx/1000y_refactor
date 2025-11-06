@@ -1,0 +1,13 @@
+<trade>
+<title>犀牛猎人</title>
+<image name=z127 value=30>
+<text>
+你知道么，这里有一只骚扰村民破坏庄稼的怪物，抓狂的犀牛王，我看你年少有为，应该去为民除害。
+</text>
+<command send='close'>关闭</command>
+<command send='ok'>接受任务</command>
+<command send='give'>交出犀牛角</command>
+<command send='change'>兑换日月装备</command>
+
+</trade>
+

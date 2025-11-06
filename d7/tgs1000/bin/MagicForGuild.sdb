@@ -1,0 +1,2 @@
+Name,EffectColor,MagicType,MagicRelation,EnergyPoint,SoundEvent,AttackSpeed,Recovery,KeepRecovery,Accuracy,Avoid,DamageBody,DamageHead,DamageArm,DamageLeg,ArmorBody,ArmorHead,ArmorArm,ArmorLeg,eEnergy,eInPower,eOutPower,eMagic,eLife,5Energy,5InPower,5OutPower,5Magic,5Life,kEnergy,kInPower,kOutPower,kMagic,kLife,Shape,GoodChar,BadChar,Notice,BowSpeed,BowImage,bowType,SEffectNumber,EEffectNumber,Index,GuildName,SoundStart,SoundStrike,SoundSwing,SoundEnd,Function,eDamageHead,eDamageArm,eDamageLeg,5DamageHead,5DamageArm,5DamageLeg,kDamageHead,kDamageArm,kDamageLeg,
+

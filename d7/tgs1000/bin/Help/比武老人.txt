@@ -1,0 +1,12 @@
+<trade>
+<title>老人</title>
+<image name=z110 value=94>
+<text>
+ 太极药水乃天之神水,只要给我一瓶,就能进入对战场...
+</text>
+<command send='close'>关闭</command>
+<command send="gonpcroom">递上太极药水</command>
+<command send="sell">购买竞技场门票</command>
+<command send="give">兑换竞技场兑奖券</command>
+</trade>
+

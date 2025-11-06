@@ -1,0 +1,9 @@
+<trade>
+<title>牛美</title>
+<image name=z43 value=106>
+<text>
+ 看看我卖的东西.有您需要的么
+</text>
+<command send='close'>关闭</command>
+<command send="sell">买 物品</command>
+</trade>

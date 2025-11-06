@@ -1,0 +1,112 @@
+unit 一级老板娘;
+
+interface
+
+function  GetToken (aStr, aToken, aSep : String) : String;
+function  CompareStr (aStr1, aStr2 : String) : Boolean;
+function  callfunc (aText: string): string;
+procedure print (aText: string);
+function  Random (aScope: integer): integer;
+function  Length (aText: string): integer;
+procedure Inc (aInt: integer);
+procedure Dec (aInt: integer);
+function  StrToInt (astr: string): integer;
+function  IntToStr (aInt: integer): string;
+procedure exit;
+
+procedure OnGetResult (aStr : String);
+procedure OnLeftClick (aStr : String);
+
+implementation
+
+procedure OnLeftClick (aStr : String);
+var
+   Str : String;
+   Race : Integer;
+begin
+   Str := callfunc ('getsenderrace');
+   Race := StrToInt (Str);
+   if Race = 1 then begin
+      Str := 'showwindow .\help\一级老板娘.txt 1';
+      print (Str);
+      exit; 
+   end;
+end;
+
+procedure OnGetResult (aStr : String);
+var
+   Str, Name : String;
+   FirstQuest : Integer;
+   age : String;
+begin
+   if aStr = 'close' then begin
+      exit;
+   end;
+   if aStr = 'sell' then begin
+      Name := callfunc ('getsendername');
+      Str := 'tradewindow ' + Name;
+      Str := Str + ' 0';
+      print (Str);
+      exit;
+   end;
+   if aStr = 'buy' then begin
+      Name := callfunc ('getsendername');
+      Str := 'tradewindow ' + Name;
+      Str := Str + ' 1';
+      print (Str);
+      exit;
+   end;
+   if aStr = 'history' then begin
+      print ('showwindow .\help\quest老板娘6.txt 1');
+      exit;
+   end;
+   if aStr = 'ok' then begin
+      Str := 'say 好感动！年轻人你真善良，祝你好运';
+      print (Str);
+      Str := 'say 绿林峡谷的入口在（97，44） 100';
+      print (Str);
+      Str := 'say 如果成功，我会好好报答你的。 200';
+      print (Str);
+   end;
+   if aStr = 'no' then begin
+      Str := 'say 还想什么？你不相信爱情吗？';
+      print (Str);
+      Str := 'say 你太让我失望了 100';
+      print (Str);
+   end;
+   if aStr = 'give' then begin
+        Str := callfunc ('getsenderage');
+        FirstQuest := StrToInt(Str);
+	if FirstQuest  > 4000 then begin
+	         Str := 'say 你看起来很沧桑，谢谢你的好意...';
+	      	 print (Str);
+		exit;		
+        end;
+	Str := callfunc ('getevent 2');
+	FirstQuest := StrToInt (Str);
+	if FirstQuest <> 0 then begin
+	         Str := 'say 我们似乎在哪儿见过...';
+	      	 print (Str);		
+		Exit; 
+	end;
+      Name := callfunc ('getsenderitemexistence 红彼岸花:1');
+      if Name = 'false' then begin
+         print ('say 年轻人,你还没出发么?');
+	 exit;
+      end;
+      Name := callfunc ('getsenderitemexistence 蓝彼岸花:1');
+      if Name = 'false' then begin
+         print ('say 年轻人,你还没出发么?');
+	 exit;
+      end;
+      print ('getsenderitem 红彼岸花:1');
+      print ('getsenderitem 蓝彼岸花:1');
+      print ('putsendermagicitem 疾速靴:2 @老板娘 4');
+      Str := callfunc ('getsetevent 2');
+      print ('say 你的勇敢和真诚让我感动和钦佩!');
+      exit;
+
+   end;
+end;
+
+end.

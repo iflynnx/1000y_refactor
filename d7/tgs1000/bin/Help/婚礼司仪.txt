@@ -1,0 +1,12 @@
+<trade>
+<title>婚礼司仪</title>
+<image name=z129 value=30>
+<text>
+我最擅长成人之美？哈哈
+</text>
+<command send='close'>关闭</command>
+<command send='join'>参加婚礼</command>
+<command send='startarena'>申请比武招亲</command>
+<command send='openmarry'>结婚</command>
+</trade>
+
