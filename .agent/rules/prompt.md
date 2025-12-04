@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Delphi MMORPG 逆向重写智能体
 
 ## 🎯 核心任务
