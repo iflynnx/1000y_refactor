@@ -49,8 +49,8 @@ description: 修复类任务工作流（Bug修复、性能优化、代码重构�
 // turbo
 ```powershell
 # 编译并运行问题版本
-dcc32.exe -B BuggyProject.dpr
-BuggyProject.exe
+go build -o buggy.exe ./cmd/game
+.\buggy.exe
 
 # 执行复现步骤
 # 观察日志输出
@@ -58,33 +58,34 @@ BuggyProject.exe
 
 #### 2.2 调试分析
 
-**使用 Delphi 调试器**：
-- 设置断点
-- 单步执行
-- 观察变量值
-- 查看调用堆栈
+**使用 Go 调试工具**：
+- 使用 Delve 调试器：`dlv debug ./cmd/game`
+- 设置断点：`break main.main`
+- 单步执行：`next`, `step`
+- 观察变量：`print varName`
+- 查看调用堆栈：`stack`
 
 **日志分析**：
-```delphi
+```go
+import "log/slog"
+
 // 添加调试日志
-Log.Debug('Player login attempt: %s', [Username]);
-Log.Debug('Database query: %s', [SQLQuery]);
+slog.Debug("player login attempt", "username", username)
+slog.Debug("database query", "sql", sqlQuery)
 ```
 
 **性能分析**：
-```delphi
-// 使用 TStopwatch
-var
-  SW: TStopwatch;
-begin
-  SW := TStopwatch.StartNew;
-  
-  // 被测代码
-  ProcessHeavyOperation();
-  
-  SW.Stop;
-  Log.Info('Operation took: %d ms', [SW.ElapsedMilliseconds]);
-end;
+```go
+import "time"
+
+// 使用 time 包测量
+start := time.Now()
+
+// 被测代码
+processHeavyOperation()
+
+elapsed := time.Since(start)
+log.Printf("Operation took: %v", elapsed)
 ```
 
 #### 2.3 根因分析（Root Cause Analysis）
@@ -139,124 +140,112 @@ Why 5：开发时未考虑异常场景
 #### 4.1 代码修改
 
 **Bug 修复示例**：
-```delphi
+```go
 // ❌ Before（有问题）
-procedure TDBManager.Query(const SQL: string);
-var
-  Conn: TConnection;
-begin
-  Conn := FConnectionPool.Acquire;
-  Conn.Execute(SQL);  // 如果异常，连接不会释放
-  FConnectionPool.Release(Conn);
-end;
+func (db *DBManager) Query(sql string) error {
+    conn := db.connectionPool.Acquire()
+    err := conn.Execute(sql)  // 如果出错，连接不会释放
+    db.connectionPool.Release(conn)
+    return err
+}
 
 // ✅ After（修复后）
-procedure TDBManager.Query(const SQL: string);
-var
-  Conn: TConnection;
-begin
-  Conn := FConnectionPool.Acquire;
-  try
-    Conn.Execute(SQL);
-  finally
-    FConnectionPool.Release(Conn);  // 确保释放
-  end;
-end;
+func (db *DBManager) Query(sql string) error {
+    conn := db.connectionPool.Acquire()
+    defer db.connectionPool.Release(conn)  // 使用 defer 确保释放
+    
+    return conn.Execute(sql)
+}
 ```
 
 **性能优化示例**：
-```delphi
+```go
 // ❌ Before（低效）
-function FindPlayerByName(const AName: string): TPlayer;
-var
-  Player: TPlayer;
-begin
-  Result := nil;
-  for Player in FPlayerList do  // O(n) 遍历
-    if Player.Name = AName then
-      Exit(Player);
-end;
+func (pm *PlayerManager) FindPlayerByName(name string) *Player {
+    // O(n) 遍历切片
+    for _, player := range pm.players {
+        if player.Name == name {
+            return player
+        }
+    }
+    return nil
+}
 
 // ✅ After（优化后）
-// 使用字典 O(1) 查找
-FPlayerDict: TDictionary<string, TPlayer>;
+// 使用 map O(1) 查找
+type PlayerManager struct {
+    playersByID   map[int]*Player
+    playersByName map[string]*Player  // 添加按名称索引
+}
 
-function FindPlayerByName(const AName: string): TPlayer;
-begin
-  FPlayerDict.TryGetValue(AName, Result);
-end;
+func (pm *PlayerManager) FindPlayerByName(name string) *Player {
+    return pm.playersByName[name]  // O(1) 查找
+}
 ```
 
 **重构示例**：
-```delphi
+```go
 // ❌ Before（重复代码）
-procedure ProcessPlayerLogin(Player: TPlayer);
-begin
-  Log.Info('Player login: ' + Player.Name);
-  SendWelcomeMessage(Player);
-  UpdateLastLoginTime(Player);
-end;
+func ProcessPlayerLogin(player *Player) {
+    log.Printf("Player login: %s", player.Name)
+    SendWelcomeMessage(player)
+    UpdateLastLoginTime(player)
+}
 
-procedure ProcessPlayerReconnect(Player: TPlayer);
-begin
-  Log.Info('Player reconnect: ' + Player.Name);
-  SendWelcomeMessage(Player);
-  UpdateLastLoginTime(Player);
-end;
+func ProcessPlayerReconnect(player *Player) {
+    log.Printf("Player reconnect: %s", player.Name)
+    SendWelcomeMessage(player)
+    UpdateLastLoginTime(player)
+}
 
 // ✅ After（消除重复）
-procedure OnPlayerEnterGame(Player: TPlayer; const Action: string);
-begin
-  Log.Info('Player %s: %s', [Action, Player.Name]);
-  SendWelcomeMessage(Player);
-  UpdateLastLoginTime(Player);
-end;
+func onPlayerEnterGame(player *Player, action string) {
+    log.Printf("Player %s: %s", action, player.Name)
+    SendWelcomeMessage(player)
+    UpdateLastLoginTime(player)
+}
 
-procedure ProcessPlayerLogin(Player: TPlayer);
-begin
-  OnPlayerEnterGame(Player, 'login');
-end;
+func ProcessPlayerLogin(player *Player) {
+    onPlayerEnterGame(player, "login")
+}
 
-procedure ProcessPlayerReconnect(Player: TPlayer);
-begin
-  OnPlayerEnterGame(Player, 'reconnect');
-end;
+func ProcessPlayerReconnect(player *Player) {
+    onPlayerEnterGame(player, "reconnect")
+}
 ```
 
 #### 4.2 添加保护措施
 
 **输入验证**：
-```delphi
-procedure CreatePlayer(const AName, APassword: string);
-begin
-  // 参数验证
-  if AName.IsEmpty or (Length(AName) > 20) then
-    raise EInvalidInput.Create('Invalid player name');
+```go
+func CreatePlayer(name, password string) (*Player, error) {
+    // 参数验证
+    if name == "" || len(name) > 20 {
+        return nil, errors.New("invalid player name")
+    }
     
-  if Length(APassword) < 6 then
-    raise EInvalidInput.Create('Password too short');
+    if len(password) < 6 {
+        return nil, errors.New("password too short")
+    }
     
-  // 业务逻辑
-  ...
-end;
+    // 业务逻辑
+    // ...
+    return player, nil
+}
 ```
 
 **错误处理**：
-```delphi
-try
-  Database.Execute(SQL);
-except
-  on E: EDBError do
-  begin
-    Log.Error('Database error: %s', [E.Message]);
-    raise;  // 重新抛出，让上层处理
-  end;
-  on E: Exception do
-  begin
-    Log.Error('Unexpected error: %s', [E.Message]);
-    // 不抛出，返回默认值
-  end;
-end;
+```go
+func (db *Database) Execute(sql string) error {
+    if err := db.conn.Exec(sql); err != nil {
+        // 记录错误
+        slog.Error("database error", "error", err, "sql", sql)
+        
+        // 返回包装后的错误
+        return fmt.Errorf("execute sql failed: %w", err)
+    }
+    return nil
+}
 ```
 
 ### 5. 测试验证
@@ -264,35 +253,42 @@ end;
 #### 5.1 单元测试
 为修复的代码添加/更新单元测试：
 
-```delphi
-[Test]
-procedure TestConnectionRelease_WithException_StillReleases;
-var
-  InitialCount, FinalCount: Integer;
-begin
-  InitialCount := ConnectionPool.AvailableCount;
-  
-  Assert.WillRaise(
-    procedure
-    begin
-      DBManager.Query('INVALID SQL');  // 会抛异常
-    end);
+```go
+func TestConnectionRelease_WithError_StillReleases(t *testing.T) {
+    pool := setupConnectionPool()
+    dbManager := NewDBManager(pool)
     
-  FinalCount := ConnectionPool.AvailableCount;
-  
-  // 确保连接被释放
-  Assert.AreEqual(InitialCount, FinalCount);
-end;
+    initialCount := pool.AvailableCount()
+    
+    // 执行会失败的查询
+    err := dbManager.Query("INVALID SQL")
+    
+    // 应该返回错误
+    if err == nil {
+        t.Error("expected error, got nil")
+    }
+    
+    finalCount := pool.AvailableCount()
+    
+    // 确保连接被释放
+    if initialCount != finalCount {
+        t.Errorf("connection leaked: initial=%d, final=%d", 
+            initialCount, finalCount)
+    }
+}
 ```
 
 #### 5.2 回归测试
 // turbo
 ```powershell
 # 运行完整测试套件
-run_all_tests.bat
+go test ./...
 
-# 特别关注相关模块
-run_database_tests.bat
+# 运行特定包的测试
+go test ./pkg/database/...
+
+# 运行竞态检测
+go test -race ./...
 ```
 
 #### 5.3 性能对比
@@ -356,11 +352,14 @@ Fixes: #123
 #### 9.1 测试环境验证
 // turbo
 ```powershell
+# 构建可执行文件
+go build -o gameserver.exe ./cmd/game
+
 # 部署到测试环境
-deploy_to_test.bat
+# (复制可执行文件和配置)
 
 # 运行冒烟测试
-smoke_test.bat
+go test -tags=smoke ./test/...
 ```
 
 #### 9.2 监控观察

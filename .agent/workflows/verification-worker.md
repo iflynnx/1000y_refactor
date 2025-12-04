@@ -28,8 +28,8 @@ description: 验证类任务工作流（单元测试、功能对比测试、性�
 #### 2.1 搭建测试环境
 // turbo
 ```powershell
-# 编译测试项目
-dcc32.exe -B TestProject.dpr
+# 运行所有测试
+go test ./...
 
 # 准备测试数据库
 mysql -u root -p < test_schema.sql
@@ -43,79 +43,95 @@ mysql -u root -p < test_schema.sql
 
 ### 3. 单元测试
 
-#### 3.1 使用 DUnit / DUnitX
+#### 3.1 使用 Go testing 标准库
 
-```delphi
-unit PlayerManagerTests;
+```go
+package player_test
 
-interface
+import (
+    "testing"
+    "github.com/yourname/y1000/internal/domain/player"
+)
 
-uses
-  DUnitX.TestFramework,
-  PlayerManager;
-
-type
-  [TestFixture]
-  TPlayerManagerTests = class
-  private
-    FManager: IPlayerManager;
-  public
-    [Setup]
-    procedure Setup;
+func TestCreatePlayer_ValidData_Success(t *testing.T) {
+    // Arrange
+    manager := player.NewManager()
     
-    [TearDown]
-    procedure TearDown;
+    // Act
+    p, err := manager.CreatePlayer("TestUser", "password123")
     
-    [Test]
-    procedure TestCreatePlayer_ValidData_Success;
+    // Assert
+    if err != nil {
+        t.Fatalf("expected no error, got %v", err)
+    }
+    if p == nil {
+        t.Fatal("expected player, got nil")
+    }
+    if p.Name != "TestUser" {
+        t.Errorf("expected name 'TestUser', got '%s'", p.Name)
+    }
+}
+
+func TestCreatePlayer_DuplicateName_ReturnsError(t *testing.T) {
+    // Arrange
+    manager := player.NewManager()
+    manager.CreatePlayer("TestUser", "pass1")
     
-    [Test]
-    procedure TestCreatePlayer_DuplicateName_ThrowsException;
+    // Act
+    _, err := manager.CreatePlayer("TestUser", "pass2")
     
-    [Test]
-    procedure TestGetPlayer_ExistingId_ReturnsPlayer;
+    // Assert
+    if err == nil {
+        t.Error("expected error for duplicate name, got nil")
+    }
+}
+
+func TestGetPlayer_ExistingID_ReturnsPlayer(t *testing.T) {
+    // Arrange
+    manager := player.NewManager()
+    created, _ := manager.CreatePlayer("TestUser", "password123")
     
-    [Test]
-    procedure TestGetPlayer_NonExistingId_ReturnsNil;
-  end;
+    // Act
+    p, err := manager.GetPlayer(created.ID)
+    
+    // Assert
+    if err != nil {
+        t.Fatalf("expected no error, got %v", err)
+    }
+    if p.ID != created.ID {
+        t.Errorf("expected ID %d, got %d", created.ID, p.ID)
+    }
+}
 
-implementation
-
-procedure TPlayerManagerTests.Setup;
-begin
-  FManager := TPlayerManager.Create;
-end;
-
-procedure TPlayerManagerTests.TearDown;
-begin
-  FManager := nil;
-end;
-
-procedure TPlayerManagerTests.TestCreatePlayer_ValidData_Success;
-var
-  Player: TPlayer;
-begin
-  // Arrange
-  
-  // Act
-  Player := FManager.CreatePlayer('TestUser', 'password123');
-  
-  // Assert
-  Assert.IsNotNull(Player);
-  Assert.AreEqual('TestUser', Player.Name);
-end;
-
-...
+func TestGetPlayer_NonExistingID_ReturnsError(t *testing.T) {
+    // Arrange
+    manager := player.NewManager()
+    
+    // Act
+    _, err := manager.GetPlayer(99999)
+    
+    // Assert
+    if err == nil {
+        t.Error("expected error for non-existing ID, got nil")
+    }
+}
 ```
 
 #### 3.2 运行测试
 // turbo
 ```powershell
 # 运行所有测试
-TestProject.exe
+go test ./...
 
-# 生成测试报告
-TestProject.exe --xml-output=test_results.xml
+# 运行测试并显示覆盖率
+go test -cover ./...
+
+# 生成覆盖率报告
+go test -coverprofile=coverage.out ./...
+go tool cover -html=coverage.out -o coverage.html
+
+# 运行测试并输出详细信息
+go test -v ./...
 ```
 
 #### 3.3 覆盖率检查
@@ -140,24 +156,30 @@ TestProject.exe --xml-output=test_results.xml
 
 #### 4.2 执行对比测试
 
-```delphi
+```go
 // 对比测试工具
-procedure CompareLoginBehavior;
-var
-  OldResult, NewResult: TLoginResult;
-begin
-  // 旧系统
-  OldResult := OldLoginServer.Login('test001', 'pass123');
-  
-  // 新系统
-  NewResult := NewLoginServer.Login('test001', 'pass123');
-  
-  // 对比
-  Assert.AreEqual(OldResult.ResultCode, NewResult.ResultCode);
-  Assert.IsTrue(NewResult.ResponseTime < 100);
-  
-  LogComparison(OldResult, NewResult);
-end;
+func TestCompareLoginBehavior(t *testing.T) {
+    // 旧系统（通过网络调用或模拟）
+    oldResult := callOldLoginServer("test001", "pass123")
+    
+    // 新系统
+    newResult, err := newLoginServer.Login("test001", "pass123")
+    if err != nil {
+        t.Fatalf("new system login failed: %v", err)
+    }
+    
+    // 对比
+    if oldResult.ResultCode != newResult.ResultCode {
+        t.Errorf("result code mismatch: old=%d, new=%d", 
+            oldResult.ResultCode, newResult.ResultCode)
+    }
+    
+    if newResult.ResponseTime >= 100 {
+        t.Errorf("response time too slow: %dms", newResult.ResponseTime)
+    }
+    
+    logComparison(oldResult, newResult)
+}
 ```
 
 #### 4.3 关键对比项
@@ -190,89 +212,126 @@ end;
 
 #### 5.2 压力测试工具
 
-```delphi
+```go
 // 模拟并发登录
-procedure StressTestLogin(AConcurrentUsers: Integer);
-var
-  Threads: TArray<TThread>;
-  i: Integer;
-  StartTime, EndTime: TDateTime;
-begin
-  SetLength(Threads, AConcurrentUsers);
-  
-  StartTime := Now;
-  
-  // 启动并发线程
-  for i := 0 to AConcurrentUsers - 1 do
-  begin
-    Threads[i] := TThread.CreateAnonymousThread(
-      procedure
-      begin
-        LoginServer.Login(Format('user%d', [i]), 'password');
-      end);
-    Threads[i].Start;
-  end;
-  
-  // 等待完成
-  for i := 0 to AConcurrentUsers - 1 do
-    Threads[i].WaitFor;
+func BenchmarkLoginConcurrent(b *testing.B) {
+    const concurrentUsers = 1000
+    loginServer := setupLoginServer()
     
-  EndTime := Now;
-  
-  WriteLn(Format('完成 %d 并发登录，耗时: %.2f 秒', 
-    [AConcurrentUsers, (EndTime - StartTime) * 86400]));
-end;
+    b.ResetTimer()
+    b.RunParallel(func(pb *testing.PB) {
+        userID := 0
+        for pb.Next() {
+            username := fmt.Sprintf("user%d", userID)
+            _, err := loginServer.Login(username, "password")
+            if err != nil {
+                b.Errorf("login failed: %v", err)
+            }
+            userID++
+        }
+    })
+}
+
+// 压力测试（非 benchmark）
+func TestStressLogin(t *testing.T) {
+    const concurrentUsers = 1000
+    loginServer := setupLoginServer()
+    
+    var wg sync.WaitGroup
+    startTime := time.Now()
+    
+    for i := 0; i < concurrentUsers; i++ {
+        wg.Add(1)
+        go func(userID int) {
+            defer wg.Done()
+            username := fmt.Sprintf("user%d", userID)
+            _, err := loginServer.Login(username, "password")
+            if err != nil {
+                t.Errorf("login failed for %s: %v", username, err)
+            }
+        }(i)
+    }
+    
+    wg.Wait()
+    elapsed := time.Since(startTime)
+    
+    t.Logf("完成 %d 并发登录，耗时: %.2f 秒", concurrentUsers, elapsed.Seconds())
+}
 ```
 
 #### 5.3 性能分析
 // turbo
 ```powershell
-# 使用 Delphi 性能分析工具
-# 或使用 Windows Performance Analyzer
+# CPU 性能分析
+go test -cpuprofile=cpu.prof -bench=.
+go tool pprof cpu.prof
 
-# 检查内存泄漏
-# 启用 FastMM4 FullDebugMode
+# 内存分析
+go test -memprofile=mem.prof -bench=.
+go tool pprof mem.prof
+
+# 竞态检测
+go test -race ./...
+
+# 生成性能报告
+go test -bench=. -benchmem ./...
 ```
 
 ### 6. 安全测试
 
 #### 6.1 输入验证测试
 
-```delphi
+```go
 // SQL 注入测试
-procedure TestSQLInjection;
-begin
-  Assert.WillRaise(
-    procedure
-    begin
-      UserManager.Login('admin'' OR ''1''=''1', 'any');
-    end,
-    EInvalidInput);
-end;
+func TestSQLInjection(t *testing.T) {
+    userManager := setupUserManager()
+    
+    // 尝试 SQL 注入
+    _, err := userManager.Login("admin' OR '1'='1", "any")
+    
+    // 应该返回错误，不应该成功登录
+    if err == nil {
+        t.Error("SQL injection vulnerability detected")
+    }
+}
 
 // XSS 测试
-procedure TestXSSPrevention;
-begin
-  Player := CreatePlayer('<script>alert(1)</script>', 'pass');
-  Assert.IsFalse(ContainsHTML(Player.Name));
-end;
+func TestXSSPrevention(t *testing.T) {
+    player, err := CreatePlayer("<script>alert(1)</script>", "pass")
+    if err != nil {
+        t.Fatalf("create player failed: %v", err)
+    }
+    
+    // 检查是否包含 HTML 标签
+    if strings.Contains(player.Name, "<") || strings.Contains(player.Name, ">") {
+        t.Error("XSS vulnerability: HTML tags not sanitized")
+    }
+}
 ```
 
 #### 6.2 权限测试
 
-```delphi
+```go
 // 越权测试
-procedure TestUnauthorizedAccess;
-begin
-  Session := LoginAsNormalUser();
-  
-  Assert.WillRaise(
-    procedure
-    begin
-      AdminPanel.BanUser(Session, 'target_user');
-    end,
-    EUnauthorized);
-end;
+func TestUnauthorizedAccess(t *testing.T) {
+    // 以普通用户登录
+    session := loginAsNormalUser()
+    adminPanel := setupAdminPanel()
+    
+    // 尝试执行管理员操作
+    err := adminPanel.BanUser(session, "target_user")
+    
+    // 应该返回未授权错误
+    if err == nil {
+        t.Error("unauthorized access allowed")
+    }
+    
+    // 检查错误类型
+    var unauthorizedErr *UnauthorizedError
+    if !errors.As(err, &unauthorizedErr) {
+        t.Errorf("expected UnauthorizedError, got %T", err)
+    }
+}
 ```
 
 #### 6.3 安全检查清单
@@ -289,13 +348,16 @@ end;
 // turbo
 ```powershell
 # 运行完整测试套件
-run_all_tests.bat
+go test ./...
 
 # 检查测试结果
 if ($LASTEXITCODE -ne 0) {
     Write-Error "回归测试失败!"
     exit 1
 }
+
+# 运行竞态检测
+go test -race ./...
 ```
 
 ### 8. 生成测试报告
