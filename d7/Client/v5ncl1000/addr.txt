@@ -1,0 +1,13 @@
+一区,dianxin.onlinejw.com,6001,电信上海(推荐)
+一区,dianwww.onlinejw.com,6001,电信广东
+一区,dianxinjiujiang.onlinejw.com,6001,电信华中
+一区,dianxindongbai.onlinejw.com,6001,电信北方(推荐)
+一区,wangtongjiujiang.onlinejw.com,6001,网通华中
+一区,wangtongdongbai.onlinejw.com,6001,网通北方
+公测,dianxin.onlinejw.com,4001,电信上海(推荐)
+公测,dianwww.onlinejw.com,4001,电信广东
+公测,dianxinjiujiang.onlinejw.com,4001,电信华中
+公测,dianxindongbai.onlinejw.com,4001,电信北方
+公测,wangtongjiujiang.onlinejw.com,4001,网通华中(推荐)
+公测,wangtongdongbai.onlinejw.com,4001,网通北方
+体验,dianxin.onlinejw.com,3053,体验区

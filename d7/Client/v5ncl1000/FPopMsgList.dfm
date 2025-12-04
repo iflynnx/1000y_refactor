@@ -1,0 +1,54 @@
+object frmPopMsgList: TfrmPopMsgList
+  Left = 214
+  Top = 363
+  BorderStyle = bsNone
+  Caption = 'frmPopMsgList'
+  ClientHeight = 136
+  ClientWidth = 155
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object A2ListBox_msglist: TA2ListBox
+    Left = 5
+    Top = 4
+    Width = 140
+    Height = 125
+    BevelOuter = bvNone
+    Ctl3D = False
+    ParentBackground = False
+    ParentCtl3D = False
+    TabOrder = 0
+    OnClick = A2ListBox_msglistClick
+    boListbox = False
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 255
+    FontMovColor = 0
+    ItemHeight = 12
+    ItemMerginX = 3
+    ItemMerginY = 3
+    ItemFontMerginX = 0
+    ItemFontMerginY = 0
+    FontEmphasis = False
+    ScrollBarView = True
+    OnAdxDrawItem = A2ListBox_msglistAdxDrawItem
+    ScrollTrack = False
+    NoHotDrawItemsCount = 0
+    UseNewClick = False
+    LeftMouseDown = False
+  end
+  object A2Form: TA2Form
+    Color = clBlack
+    ShowMethod = FSM_NONE
+    TransParent = False
+    Top = 24
+  end
+end

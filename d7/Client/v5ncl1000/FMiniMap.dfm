@@ -1,0 +1,90 @@
+object FrmMiniMap: TFrmMiniMap
+  Left = 627
+  Top = 188
+  BorderStyle = bsNone
+  Caption = 'FrmMiniMap'
+  ClientHeight = 483
+  ClientWidth = 780
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object A2ILabel_b: TA2ILabel
+    Left = 0
+    Top = 0
+    Width = 780
+    Height = 483
+    Align = alClient
+    AutoSize = False
+    OnMouseDown = A2ILabel_bMouseDown
+    OnMouseMove = A2ILabel_bMouseMove
+    ADXForm = A2Form
+    DrawItemData = False
+  end
+  object CenterIDLabel: TA2ILabel
+    Left = 208
+    Top = 200
+    Width = 8
+    Height = 8
+    AutoSize = False
+    Color = clTeal
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    ADXForm = A2Form
+    DrawItemData = False
+  end
+  object A2ILabel1: TA2ILabel
+    Left = 32
+    Top = 24
+    Width = 76
+    Height = 19
+    AutoSize = False
+    BiDiMode = bdLeftToRight
+    Color = clNavy
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentColor = False
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnClick = A2ILabel1Click
+    ADXForm = A2Form
+    DrawItemData = False
+  end
+  object A2Form: TA2Form
+    Color = 31
+    ShowMethod = FSM_NONE
+    TransParent = False
+    Left = 16
+    Top = 8
+  end
+  object TimerAutoPathMove: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = TimerAutoPathMoveTimer
+    Left = 208
+    Top = 56
+  end
+  object TimerMove: TTimer
+    Interval = 50
+    OnTimer = TimerMoveTimer
+    Left = 272
+    Top = 72
+  end
+end

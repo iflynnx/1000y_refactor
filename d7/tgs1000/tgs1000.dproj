@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{5b044109-542c-40ab-adcb-a2209b5db036}</ProjectGuid>
+    <MainSource>tgs1000.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\..\debug\tgs1000\tgs1000.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Alignment>1</DCC_Alignment>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_ExeOutput>..\..\debug\tgs1000</DCC_ExeOutput>
+    <DCC_DcuOutput>..\..\dcu\tgs1000</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\dcu\tgs1000</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\dcu\tgs1000</DCC_HppOutput>
+    <DCC_BplOutput>D:\神武新章源码\完整代码\控件\FastNet.v5.6.3.D5-7.FS\lib</DCC_BplOutput>
+    <DCC_DcpOutput>D:\神武新章源码\完整代码\控件\FastNet.v5.6.3.D5-7.FS\lib</DCC_DcpOutput>
+    <DCC_UnitSearchPath>..\alib;..\..\FastMM4</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\alib;..\..\FastMM4</DCC_ResourcePath>
+    <DCC_ObjPath>..\alib;..\..\FastMM4</DCC_ObjPath>
+    <DCC_IncludePath>..\alib;..\..\FastMM4</DCC_IncludePath>
+    <DCC_Define>test;EUREKALOG;EUREKALOG_VER6;RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_ExeOutput>..\..\debug\tgs1000</DCC_ExeOutput>
+    <DCC_DcuOutput>..\..\dcu\tgs1000</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\dcu\tgs1000</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\dcu\tgs1000</DCC_HppOutput>
+    <DCC_UnitSearchPath>..\alib;..\..\FastMM4</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\alib;..\..\FastMM4</DCC_ResourcePath>
+    <DCC_ObjPath>..\alib;..\..\FastMM4</DCC_ObjPath>
+    <DCC_IncludePath>..\alib;..\..\FastMM4</DCC_IncludePath>
+    <DCC_Define>test;DEBUG</DCC_Define>
+    <DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE</DCC_UnitAlias>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="DebugSourceDirs">D:\神武新章源码\完整代码\控件\FastNet.v5.6.3.D5-7.FS\lib</Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">2052</VersionInfo><VersionInfo Name="CodePage">936</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">tgs1000.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="tgs1000.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\1000ydef\deftype.pas" />
+    <DCCReference Include="..\1000ydef\uGramerId.pas" />
+    <DCCReference Include="..\Client\v5ncl1000\Unit_console.pas">
+      <Form>FrmConsole</Form>
+    </DCCReference>
+    <DCCReference Include="..\common\BSCommon.pas" />
+    <DCCReference Include="..\common\uBuffer.pas" />
+    <DCCReference Include="..\common\uCrypt.pas" />
+    <DCCReference Include="..\common\uEasyList.pas" />
+    <DCCReference Include="..\common\uKeyClass.pas" />
+    <DCCReference Include="..\common\uPackets.pas" />
+    <DCCReference Include="..\db\uDBFile.pas" />
+    <DCCReference Include="..\db\UnitItemEditWin.pas">
+      <Form>frmItemEdit</Form>
+    </DCCReference>
+    <DCCReference Include="BasicObj.pas" />
+    <DCCReference Include="fbl.pas">
+      <Form>frmfbl</Form>
+    </DCCReference>
+    <DCCReference Include="FGate.pas">
+      <Form>frmGate</Form>
+    </DCCReference>
+    <DCCReference Include="fieldmsg.pas" />
+    <DCCReference Include="frmAuction.pas">
+      <Form>FormAuction</Form>
+    </DCCReference>
+    <DCCReference Include="frmEmail.pas">
+      <Form>FormEmail</Form>
+    </DCCReference>
+    <DCCReference Include="FSockets.pas">
+      <Form>FrmSockets</Form>
+    </DCCReference>
+    <DCCReference Include="MapUnit.pas" />
+    <DCCReference Include="SubUtil.pas" />
+    <DCCReference Include="svClass.pas" />
+    <DCCReference Include="SVMain.pas">
+      <Form>FrmMain</Form>
+    </DCCReference>
+    <DCCReference Include="uAIPath.pas" />
+    <DCCReference Include="uAuction.pas" />
+    <DCCReference Include="uBillboardcharts.pas" />
+    <DCCReference Include="uConnect.pas" />
+    <DCCReference Include="uDoorGen.pas" />
+    <DCCReference Include="uEmail.pas" />
+    <DCCReference Include="uEmaildata.pas" />
+    <DCCReference Include="uEmporia.pas" />
+    <DCCReference Include="uGConnect.pas" />
+    <DCCReference Include="uGuild.pas" />
+    <DCCReference Include="uGuildSub.pas" />
+    <DCCReference Include="uhailfellow.pas" />
+    <DCCReference Include="uItemLog.pas" />
+    <DCCReference Include="uLetter.pas" />
+    <DCCReference Include="uMagicClass.pas" />
+    <DCCReference Include="uManager.pas" />
+    <DCCReference Include="uMarriage.pas" />
+    <DCCReference Include="uMonster.pas" />
+    <DCCReference Include="uMopSub.pas" />
+    <DCCReference Include="uNpc.pas" />
+    <DCCReference Include="uObjectEvent.pas" />
+    <DCCReference Include="uProcession.pas" />
+    <DCCReference Include="uQuest.pas" />
+    <DCCReference Include="uResponsion.pas" />
+    <DCCReference Include="uSendCls.pas" />
+    <DCCReference Include="uSkills.pas" />
+    <DCCReference Include="UTelemanagement.pas" />
+    <DCCReference Include="UUser.pas" />
+    <DCCReference Include="uUserSub.pas" />
+    <DCCReference Include="ViewLog.pas">
+      <Form>frmLog</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>
