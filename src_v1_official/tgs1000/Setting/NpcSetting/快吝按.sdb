@@ -1,0 +1,6 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,안녕하세요,,,,,2000,
+2,TRUE,,,,왕릉지기 우중객입니다,,,,,2500,
+3,TRUE,,,,왕릉의 출입은 1시간마다 5분동안 가능합니다.,,,,,3000,
+4,,TRUE,,계림도끼교환해줘,옥새/신라금관과 계림도끼를 교환합니다.,옥새:1:신라금관:1:,계림도끼:1:,,,,
+5,,TRUE,,청동열쇠교환해줘,웅담5개와 호랑이발톱 5개와 교환합니다.,웅담:5:호랑이발톱:5:,청동열쇠:1:,,,,

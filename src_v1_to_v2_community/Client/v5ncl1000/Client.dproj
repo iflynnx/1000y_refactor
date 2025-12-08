@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{c5060606-ddde-49b3-9a5d-fc7f07c2c971}</ProjectGuid>
+    <MainSource>Client.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\..\..\debug\client\Client.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_UnitSearchPath>$(DELPHI)\Imports;$(DELPHI)\Bin;$(DELPHI)\Lib;$(DELPHI)\Projects\Bpl;F:\编程相关\VclSkin_v4.9.3\Vclskin\source;F:\编程相关\HotKeySpy 1.01;F:\编程相关\AnimationEffect\AnimationEffect\Delphi7;F:\编程相关\bscnym_TNTWare_v2.3\Source;F:\编程相关\fastnet\lib;F:\编程相关\indy9;F:\编程相关\UVC\src;F:\编程相关\DynamicSkinForm 5.90\DynamicSkinForm 5.90;F:\编程相关\SecureBlackbox5.1\Packages;F:\编程相关\SecureBlackbox5.1\Sources;F:\MY TOOLS\2012代码\千年\AAFont\AAFont;f:\编程相关\uvc\d7;C:\Program Files (x86)\Raize\RC3\Lib7;C:\Program Files (x86)\Raize\RC3\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\deepblue_TPaxScripter_v3.0\packages;F:\编程相关\VCLZip.Pro.v3.05.b1.FS.D7;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\控件\FastMM4;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000;F:\MY TOOLS\2012代码\千年\汉化版本2\1000y_Source\Common;F:\MY TOOLS\2012代码\千年\侠义道\1000ydef;F:\MY TOOLS\2012代码\千年\侠义道\common;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\1000ydef;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\A2DxWindows;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\alib;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\sound;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年\DelphiX2000\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\gdi;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年源码3\JSocket</DCC_UnitSearchPath>
+    <DCC_ResourcePath>$(DELPHI)\Imports;$(DELPHI)\Bin;$(DELPHI)\Lib;$(DELPHI)\Projects\Bpl;F:\编程相关\VclSkin_v4.9.3\Vclskin\source;F:\编程相关\HotKeySpy 1.01;F:\编程相关\AnimationEffect\AnimationEffect\Delphi7;F:\编程相关\bscnym_TNTWare_v2.3\Source;F:\编程相关\fastnet\lib;F:\编程相关\indy9;F:\编程相关\UVC\src;F:\编程相关\DynamicSkinForm 5.90\DynamicSkinForm 5.90;F:\编程相关\SecureBlackbox5.1\Packages;F:\编程相关\SecureBlackbox5.1\Sources;F:\MY TOOLS\2012代码\千年\AAFont\AAFont;f:\编程相关\uvc\d7;C:\Program Files (x86)\Raize\RC3\Lib7;C:\Program Files (x86)\Raize\RC3\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\deepblue_TPaxScripter_v3.0\packages;F:\编程相关\VCLZip.Pro.v3.05.b1.FS.D7;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\控件\FastMM4;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000;F:\MY TOOLS\2012代码\千年\汉化版本2\1000y_Source\Common;F:\MY TOOLS\2012代码\千年\侠义道\1000ydef;F:\MY TOOLS\2012代码\千年\侠义道\common;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\1000ydef;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\A2DxWindows;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\alib;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\sound;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年\DelphiX2000\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\gdi;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年源码3\JSocket</DCC_ResourcePath>
+    <DCC_ObjPath>$(DELPHI)\Imports;$(DELPHI)\Bin;$(DELPHI)\Lib;$(DELPHI)\Projects\Bpl;F:\编程相关\VclSkin_v4.9.3\Vclskin\source;F:\编程相关\HotKeySpy 1.01;F:\编程相关\AnimationEffect\AnimationEffect\Delphi7;F:\编程相关\bscnym_TNTWare_v2.3\Source;F:\编程相关\fastnet\lib;F:\编程相关\indy9;F:\编程相关\UVC\src;F:\编程相关\DynamicSkinForm 5.90\DynamicSkinForm 5.90;F:\编程相关\SecureBlackbox5.1\Packages;F:\编程相关\SecureBlackbox5.1\Sources;F:\MY TOOLS\2012代码\千年\AAFont\AAFont;f:\编程相关\uvc\d7;C:\Program Files (x86)\Raize\RC3\Lib7;C:\Program Files (x86)\Raize\RC3\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\deepblue_TPaxScripter_v3.0\packages;F:\编程相关\VCLZip.Pro.v3.05.b1.FS.D7;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\控件\FastMM4;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000;F:\MY TOOLS\2012代码\千年\汉化版本2\1000y_Source\Common;F:\MY TOOLS\2012代码\千年\侠义道\1000ydef;F:\MY TOOLS\2012代码\千年\侠义道\common;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\1000ydef;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\A2DxWindows;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\alib;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\sound;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年\DelphiX2000\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\gdi;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年源码3\JSocket</DCC_ObjPath>
+    <DCC_IncludePath>$(DELPHI)\Imports;$(DELPHI)\Bin;$(DELPHI)\Lib;$(DELPHI)\Projects\Bpl;F:\编程相关\VclSkin_v4.9.3\Vclskin\source;F:\编程相关\HotKeySpy 1.01;F:\编程相关\AnimationEffect\AnimationEffect\Delphi7;F:\编程相关\bscnym_TNTWare_v2.3\Source;F:\编程相关\fastnet\lib;F:\编程相关\indy9;F:\编程相关\UVC\src;F:\编程相关\DynamicSkinForm 5.90\DynamicSkinForm 5.90;F:\编程相关\SecureBlackbox5.1\Packages;F:\编程相关\SecureBlackbox5.1\Sources;F:\MY TOOLS\2012代码\千年\AAFont\AAFont;f:\编程相关\uvc\d7;C:\Program Files (x86)\Raize\RC3\Lib7;C:\Program Files (x86)\Raize\RC3\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\deepblue_TPaxScripter_v3.0\packages;F:\编程相关\VCLZip.Pro.v3.05.b1.FS.D7;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\控件\FastMM4;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000;F:\MY TOOLS\2012代码\千年\汉化版本2\1000y_Source\Common;F:\MY TOOLS\2012代码\千年\侠义道\1000ydef;F:\MY TOOLS\2012代码\千年\侠义道\common;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\1000ydef;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\A2DxWindows;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\alib;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\sound;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年\DelphiX2000\Source;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\最后的代码\Client\v5ncl1000\gdi;F:\MY TOOLS\2012代码\千年\神武新章源码(2)\神武新章源码\神武新章源码\千年源码3\JSocket</DCC_IncludePath>
+    <DCC_Define>RELEASE</DCC_Define>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_UnitSearchPath>..\..\alib;.\gdi\;.\sound;..\..\A2DxWindows;..\..\..\FastMM4</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\..\alib;.\gdi\;.\sound;..\..\A2DxWindows;..\..\..\FastMM4</DCC_ResourcePath>
+    <DCC_ObjPath>..\..\alib;.\gdi\;.\sound;..\..\A2DxWindows;..\..\..\FastMM4</DCC_ObjPath>
+    <DCC_IncludePath>..\..\alib;.\gdi\;.\sound;..\..\A2DxWindows;..\..\..\FastMM4</DCC_IncludePath>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+    <DCC_DcuOutput>..\..\..\dcu\client</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\..\dcu\client</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\..\dcu\client</DCC_HppOutput>
+    <DCC_ExeOutput>..\..\..\debug\client</DCC_ExeOutput>
+    <DCC_Define>DEBUG</DCC_Define>
+    <DCC_WriteableConstants>True</DCC_WriteableConstants>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">2052</VersionInfo><VersionInfo Name="CodePage">936</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">Client.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="Client.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\..\1000ydef\deftype.pas" />
+    <DCCReference Include="..\..\1000ydef\Log.pas" />
+    <DCCReference Include="..\..\1000ydef\SubUtil.pas" />
+    <DCCReference Include="..\..\1000ydef\uGramerId.pas" />
+    <DCCReference Include="..\..\common\BSCommon.pas" />
+    <DCCReference Include="..\..\common\uBuffer.pas" />
+    <DCCReference Include="..\..\common\uCrypt.pas" />
+    <DCCReference Include="..\..\common\uinifile.pas" />
+    <DCCReference Include="..\..\common\uKeyClass.pas" />
+    <DCCReference Include="..\..\common\uNewPackets.pas" />
+    <DCCReference Include="..\..\common\uPackets.pas" />
+    <DCCReference Include="..\..\tgs1000\uMagicClass.pas" />
+    <DCCReference Include="AuctionBuy.pas">
+      <Form>frmAuctionBuy</Form>
+    </DCCReference>
+    <DCCReference Include="cAIPath.pas" />
+    <DCCReference Include="CLMap.pas" />
+    <DCCReference Include="cMAPGDI.pas" />
+    <DCCReference Include="CTable.pas" />
+    <DCCReference Include="energy.pas" />
+    <DCCReference Include="FAttrib.pas">
+      <Form>FrmAttrib</Form>
+    </DCCReference>
+    <DCCReference Include="FAuction.pas">
+      <Form>frmAuction</Form>
+    </DCCReference>
+    <DCCReference Include="fb.pas">
+      <Form>frmfb</Form>
+    </DCCReference>
+    <DCCReference Include="FbatList.pas">
+      <Form>FrmbatList</Form>
+    </DCCReference>
+    <DCCReference Include="FBillboardcharts.pas">
+      <Form>frmBillboardcharts</Form>
+    </DCCReference>
+    <DCCReference Include="fbl.pas">
+      <Form>frmfbl</Form>
+    </DCCReference>
+    <DCCReference Include="FBooth.pas">
+      <Form>FrmBooth</Form>
+    </DCCReference>
+    <DCCReference Include="FBottom.pas">
+      <Form>FrmBottom</Form>
+    </DCCReference>
+    <DCCReference Include="FCharAttrib.pas">
+      <Form>frmCharAttrib</Form>
+    </DCCReference>
+    <DCCReference Include="Fchat.pas">
+      <Form>frmchat</Form>
+    </DCCReference>
+    <DCCReference Include="FcMessageBox.pas">
+      <Form>FrmcMessageBox</Form>
+    </DCCReference>
+    <DCCReference Include="FConfirmDialog.pas">
+      <Form>frmConfirmDialog</Form>
+    </DCCReference>
+    <DCCReference Include="FDepository.pas">
+      <Form>FrmDepository</Form>
+    </DCCReference>
+    <DCCReference Include="FEMAIL.pas">
+      <Form>FrmEmail</Form>
+    </DCCReference>
+    <DCCReference Include="Femailread.pas">
+      <Form>frmEmailRead</Form>
+    </DCCReference>
+    <DCCReference Include="FEmporia.pas">
+      <Form>frmEmporia</Form>
+    </DCCReference>
+    <DCCReference Include="FExchange.pas">
+      <Form>FrmExchange</Form>
+    </DCCReference>
+    <DCCReference Include="FGameToolsNew.pas">
+      <Form>frmGameToolsNew</Form>
+    </DCCReference>
+    <DCCReference Include="FGuild.pas">
+      <Form>frmGuild</Form>
+    </DCCReference>
+    <DCCReference Include="Fhelp_htm.pas">
+      <Form>frmHelp</Form>
+    </DCCReference>
+    <DCCReference Include="FHistory.pas">
+      <Form>frmHistory</Form>
+    </DCCReference>
+    <DCCReference Include="filepgkclass.pas" />
+    <DCCReference Include="FItemHelp.pas">
+      <Form>frmItemHelp</Form>
+    </DCCReference>
+    <DCCReference Include="FItemTreeView.pas">
+      <Form>frmItemTreeView</Form>
+    </DCCReference>
+    <DCCReference Include="FLittleMap.pas">
+      <Form>frmLittleMap</Form>
+    </DCCReference>
+    <DCCReference Include="FMain.pas">
+      <Form>FrmM</Form>
+    </DCCReference>
+    <DCCReference Include="FMiniMap.pas">
+      <Form>FrmMiniMap</Form>
+    </DCCReference>
+    <DCCReference Include="fmsgboxtemp.pas">
+      <Form>frmMsgBoxTemp</Form>
+    </DCCReference>
+    <DCCReference Include="FMuMagicOffer.pas">
+      <Form>FrmMuMagicOffer</Form>
+    </DCCReference>
+    <DCCReference Include="FNewEMAIL.PAS">
+      <Form>FrmNEWEmail</Form>
+    </DCCReference>
+    <DCCReference Include="FNEWHailFellow.pas">
+      <Form>FrmHailFellow</Form>
+    </DCCReference>
+    <DCCReference Include="FnewMagic.pas">
+      <Form>FrmNewMagic</Form>
+    </DCCReference>
+    <DCCReference Include="FNewUser.pas">
+      <Form>FrmNewUser</Form>
+    </DCCReference>
+    <DCCReference Include="FNPCTrade.pas">
+      <Form>frmNPCTrade</Form>
+    </DCCReference>
+    <DCCReference Include="FPassEtc.pas">
+      <Form>FrmPassEtc</Form>
+    </DCCReference>
+    <DCCReference Include="FPopMsgList.pas">
+      <Form>frmPopMsgList</Form>
+    </DCCReference>
+    <DCCReference Include="FProcession.pas">
+      <Form>frmProcession</Form>
+    </DCCReference>
+    <DCCReference Include="FProcessionButton.pas">
+      <Form>frmProcessionButton</Form>
+    </DCCReference>
+    <DCCReference Include="FProcessionList.pas">
+      <Form>frmProcessionList</Form>
+    </DCCReference>
+    <DCCReference Include="FQuantity.pas">
+      <Form>FrmQuantity</Form>
+    </DCCReference>
+    <DCCReference Include="FQuest.pas">
+      <Form>frmQuest</Form>
+    </DCCReference>
+    <DCCReference Include="FSearch.pas">
+      <Form>FrmSearch</Form>
+    </DCCReference>
+    <DCCReference Include="FSelChar.pas">
+      <Form>FrmSelChar</Form>
+    </DCCReference>
+    <DCCReference Include="FShowPopMsg.pas">
+      <Form>frmPopMsg</Form>
+    </DCCReference>
+    <DCCReference Include="FSkill.pas">
+      <Form>frmSkill</Form>
+    </DCCReference>
+    <DCCReference Include="FSound.pas">
+      <Form>FrmSound</Form>
+    </DCCReference>
+    <DCCReference Include="FUPdateItemLevel.pas">
+      <Form>FrmUPdateItemLevel</Form>
+    </DCCReference>
+    <DCCReference Include="FWearItem.pas">
+      <Form>FrmWearItem</Form>
+    </DCCReference>
+    <DCCReference Include="FWearItemUser.pas">
+      <Form>frmWearItemUser</Form>
+    </DCCReference>
+    <DCCReference Include="objcls.pas" />
+    <DCCReference Include="PGK\FfilePgk.pas" />
+    <DCCReference Include="ProClass.pas" />
+    <DCCReference Include="TileCls.pas" />
+    <DCCReference Include="Unit_console.pas">
+      <Form>FrmConsole</Form>
+    </DCCReference>
+    <DCCReference Include="uPersonBat.pas" />
+    <DCCReference Include="uSetWinIni.pas" />
+    <DCCReference Include="Usound.pas" />
+  </ItemGroup>
+</Project>

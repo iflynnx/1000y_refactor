@@ -1,0 +1,4 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,안녕하세요,,,,,2000,
+2,TRUE,,,,문파판매관청의 포도대장입니다,,,,,2100,
+3,,TRUE,,계림부적교환해줘,무소의뿔5개와 은화:2:개가 필요합니다.,무소의뿔:5:은화:2:,계림부적:1:,,,,

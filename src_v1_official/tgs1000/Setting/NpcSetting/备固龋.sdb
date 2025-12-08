@@ -1,0 +1,2 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,,TRUE,,여우내단교환해줘,백장미99송이와여우내단을교환합니다,백장미:99:요화꼬리:1,여우내단:1,,,,

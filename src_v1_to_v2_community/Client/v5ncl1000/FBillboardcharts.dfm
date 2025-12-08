@@ -1,0 +1,243 @@
+object frmBillboardcharts: TfrmBillboardcharts
+  Left = 587
+  Top = 218
+  BorderStyle = bsNone
+  Caption = 'frmBillboardcharts'
+  ClientHeight = 329
+  ClientWidth = 400
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnMouseDown = FormMouseDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object A2ButtonEnergy: TA2Button
+    Left = 61
+    Top = 23
+    Width = 52
+    Height = 17
+    AutoSize = False
+    Caption = #24180#40836#25490#34892
+    Color = clSkyBlue
+    ParentColor = False
+    OnClick = A2ButtonEnergyClick
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2ButtonPrestige: TA2Button
+    Left = 125
+    Top = 23
+    Width = 52
+    Height = 17
+    AutoSize = False
+    Caption = #33635#35465#25490#34892
+    Color = clSkyBlue
+    ParentColor = False
+    OnClick = A2ButtonPrestigeClick
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2Button2: TA2Button
+    Left = 293
+    Top = 259
+    Width = 72
+    Height = 27
+    AutoSize = False
+    Color = clSkyBlue
+    ParentColor = False
+    Transparent = False
+    OnClick = A2Button2Click
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2ButtonNEXT: TA2Button
+    Left = 161
+    Top = 259
+    Width = 72
+    Height = 27
+    AutoSize = False
+    Color = clSkyBlue
+    ParentColor = False
+    Transparent = False
+    Visible = False
+    OnClick = A2ButtonNEXTClick
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2Button3: TA2Button
+    Left = 29
+    Top = 259
+    Width = 72
+    Height = 27
+    AutoSize = False
+    Color = clSkyBlue
+    ParentColor = False
+    Transparent = False
+    Visible = False
+    OnClick = A2Button3Click
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2ILabelTitle: TA2ILabel
+    Left = 151
+    Top = 43
+    Width = 108
+    Height = 19
+    AutoSize = False
+    Color = clSkyBlue
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Transparent = True
+    ADXForm = A2Form
+    DrawItemData = False
+  end
+  object A2ILabelfield: TA2ILabel
+    Left = 31
+    Top = 67
+    Width = 336
+    Height = 15
+    AutoSize = False
+    Color = 3972607
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Transparent = True
+    ADXForm = A2Form
+    DrawItemData = False
+  end
+  object A2ButtonGuild: TA2Button
+    Left = 189
+    Top = 22
+    Width = 52
+    Height = 17
+    AutoSize = False
+    Caption = #33635#35465#25490#34892
+    Color = clSkyBlue
+    ParentColor = False
+    OnClick = A2ButtonGuildClick
+    FontColor = 32767
+    FontSelColor = 31
+  end
+  object A2ListBox1: TA2ListBox
+    Left = 28
+    Top = 88
+    Width = 361
+    Height = 164
+    Caption = 'A2ListBox1'
+    Color = 17098
+    TabOrder = 0
+    boListbox = False
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 32767
+    FontMovColor = 0
+    ItemHeight = 15
+    ItemMerginX = 3
+    ItemMerginY = 3
+    ItemFontMerginX = 0
+    ItemFontMerginY = 0
+    FontEmphasis = False
+    ScrollBarView = True
+    OnAdxDrawItem = A2ListBox1AdxDrawItem
+    ScrollTrack = False
+    NoHotDrawItemsCount = 0
+    UseNewClick = False
+    LeftMouseDown = False
+  end
+  object ComboBox: TA2ComboBox
+    Left = 28
+    Top = 42
+    Width = 65
+    Height = 21
+    BevelInner = bvNone
+    BevelOuter = bvNone
+    Style = csOwnerDrawVariable
+    Color = clBlack
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ImeName = #20013#25991' ('#31616#20307') - '#26234#33021' ABC'
+    ItemHeight = 15
+    ItemIndex = 0
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 1
+    Text = #33635#35465#27036
+    Items.Strings = (
+      #33635#35465#27036
+      #24180#40836#27036)
+    ADXForm = A2Form
+    Picture.Data = {
+      07544269746D617026050000424D260500000000000036040000280000001000
+      00000F0000000100080000000000F00000000000000000000000000100000001
+      000000000000FFFFFF00050404005F75740003070700070B0B000C101000586D
+      6D000D0F0F0086959500838A8A006B9092006275760057676800364142008995
+      96005D848800597B7F00657678006C7D7F00747D7E001E252600637274006977
+      79004A70770050767D001924260057767B00343F410065787B007A878900060B
+      0C00385C63003B5E6500090E0F00557F87004F747B0062838A00313F4200556C
+      710012171800718488000E1618003E6169001723260042656D003F5F67005175
+      7D006B7D81006972740070797B00979FA10042646D0058818D00688B9400738B
+      92003944470068767A00081215004E707A00527580005A798300323C3F003A44
+      47006F797C0087919400557681005B7B87006284900062818C006A8A96006787
+      92002D3B4000617E880036454A006C7E84005D6B70007C8C9200567B89005B7F
+      8E004C6A7600628998006A8C99006885900067848F006C767A0053585A005775
+      82004E67720066828F00343D41003F484C001C262B005C798800637F8D006883
+      90006E8A98006B8694007B98A70088A1AE000B0D0E003F434500202F37002F40
+      49003E494F00363F44006772780061686C005C7381004F626E004C687B003A4F
+      5D00435A690031404A0036434C003F4B5300778995007384900064727B005C65
+      6B001E2E3A0037434C0053636F005A68720057646E007789960020242700828F
+      9900585C5F001E2830004D647700222B32002F383F004F5D6800404950003237
+      3B00373C4000141F29001B273200293845002B3A4700516C84002C3A46001B22
+      2800272F36002E373F0045515C0054616D0049545E005F6D790002050800283C
+      4F000C10140034404C003B485500414D59002F373F003C4650004C5864004C57
+      620069788700434C550056606A003E444A0033383D00373C41003C4044001415
+      1600343638001F283200667688003C454F003E4751003840490003080E000C11
+      17002C3C4F001D2733002D3A4A001B222A00242A3100444F5C008191A4000E16
+      2000262E38003C48570048536200393F47005C646E005A60680035435700222B
+      3800242D3A002B3543002C3644004451640036404F00343E4C00252C36003E48
+      5700343C4800272D360046505F0031384200444D5A003E4652003C444F003F47
+      52004D566300414852003B414A004E566100394558001F242C004B525D00303B
+      4E00303A4B003A4353002A303A007B8391006D737D0062677000080B11002229
+      3700262D3B003C46590039415000454B57001C222F000F1420001A1C21005258
+      66005458620002040A00000001000E0E0F002525270009090900010101000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000041BCCCBACAD1D2A4A5A3A18688876B3377A27897B08C8B662C818E675C96
+      5B09DC7B353C4E4F51522E2D100B36DE73B6DBA042DA99D8D4C3C08F486825E5
+      72757F7D45CBC4D7BEB1ADC98391118971120F4D47CFE2B2B7EAA8BBB3D51B1A
+      4A1D0A4044D09EA90000EDA690C649283F29310D46E79C9808EEEB0265D64304
+      3874550753E38494790080B456DD3B1F26AA1E133DAC7C938AA7BDE19FAB2B2A
+      1C95304B2F9D929AAE64CDC5C2BF203A6916321719B585B9E9ECD3D9C1DF3422
+      3E0C143924CE9BC7B8E6E8C8E0E421060E036A6D236C3758506E8D82706F1805
+      154C7A765F6263615E575D596054275AAF7E}
+  end
+  object A2Form: TA2Form
+    Color = clBlack
+    ShowMethod = FSM_NONE
+    TransParent = False
+    Left = 8
+    Top = 8
+  end
+end

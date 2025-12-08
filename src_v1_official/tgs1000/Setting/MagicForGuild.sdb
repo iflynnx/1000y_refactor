@@ -1,0 +1,4 @@
+Name,MagicType,SoundEvent,AttackSpeed,Recovery,Avoid,DamageBody,DamageHead,DamageArm,DamageLeg,ArmorBody,ArmorHead,ArmorArm,ArmorLeg,eEnergy,eInPower,eOutPower,eMagic,eLife,5Energy,5InPower,5OutPower,5Magic,5Life,kEnergy,kInPower,kOutPower,kMagic,kLife,Shape,GoodChar,BadChar,Notice,BowSpeed,BowImage,BowType,Index,GuildName,SoundStart,SoundStrike,SoundSwing,SoundEnd,Function,
+도토리퇴,3,,50,50,50,50,20,20,20,48,40,40,40,0,20,20,20,20,,,,,,10,10,10,10,10,1,,,,,,,,도토리,,5600,5601,,0,
+도토리도,0,,50,50,50,50,20,20,20,48,40,40,40,0,10,30,20,20,,,,,,10,10,10,10,10,1,,,,,,,,,,5600,5601,,0,
+야거러지렁,1,,99,50,50,1,20,20,20,48,40,40,40,0,10,30,20,20,,,,,,10,10,10,10,10,2,,,,,,,,도토리,,5800,5801,,0,

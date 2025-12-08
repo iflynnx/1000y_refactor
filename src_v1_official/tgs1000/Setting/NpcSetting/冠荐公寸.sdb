@@ -1,0 +1,2 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,,TRUE,,투시부적교환해줘,옳거니 잠행술을 가지고 왔구나. 투시부적을 주마,잠행술:1,투시부적:1,,,,

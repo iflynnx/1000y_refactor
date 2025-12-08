@@ -1,0 +1,3 @@
+SELLITEM:남자포졸인형
+SELLITEM:문파초석
+BUYITEM:이동부적

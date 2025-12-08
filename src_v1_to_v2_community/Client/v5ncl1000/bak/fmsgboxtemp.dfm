@@ -1,0 +1,76 @@
+object frmMsgBoxTemp: TfrmMsgBoxTemp
+  Left = 234
+  Top = 138
+  BorderStyle = bsNone
+  Caption = 'frmMsgBoxTemp'
+  ClientHeight = 298
+  ClientWidth = 248
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object A2Label1: TA2Label
+    Left = 24
+    Top = 48
+    Width = 201
+    Height = 15
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'A2Label1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    ADXForm = A2Form
+    FontColor = 32767
+    BackColor = 0
+    DrawItemData = False
+    ChangeLine = False
+    HeightSpac = 3
+    LineEndSpac = 10
+  end
+  object A2Button1: TA2Button
+    Left = 155
+    Top = 264
+    Width = 65
+    Height = 17
+    AutoSize = False
+    OnClick = A2Button1Click
+    ADXForm = A2Form
+    FontColor = 0
+    FontSelColor = 0
+  end
+  object A2ListBox1: TA2ListBox
+    Left = 24
+    Top = 72
+    Width = 201
+    Height = 183
+    Caption = 'A2ListBox1'
+    TabOrder = 0
+    boListbox = False
+    ADXForm = A2Form
+    FontColor = 32767
+    FontSelColor = 32767
+    FontMovColor = 0
+    ItemHeight = 12
+    ItemMerginX = 3
+    ItemMerginY = 3
+    FontEmphasis = False
+    ScrollBarView = True
+  end
+  object A2Form: TA2Form
+    Color = clBlack
+    ShowMethod = FSM_NONE
+    TransParent = False
+    Left = 176
+    Top = 24
+  end
+end

@@ -1,0 +1,4 @@
+Name,boSelfSay,boMain,MainNumber,HearString,SayString,NeedItem,GiveItem,CountLimit,RecoverTime,DelayTime,
+1,TRUE,,,,천년 주모입니다,,,,,2000,
+2,TRUE,,,,즐거운 여름방학 되세요 ^^*,,,,,2100,
+3,TRUE,,,,자세한 사항은 홈페이지를 참조해주세요.,,,,,2100,
